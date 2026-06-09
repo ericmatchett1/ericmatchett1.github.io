@@ -1,46 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eric Matchett</title>
-  <style>
-    body {
-      font-family: Georgia, serif;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-      color: #222;
-    }
-    h1 { margin-bottom: 0; }
-    .subtitle { color: #666; margin-top: 4px; }
-    nav a { margin-right: 16px; text-decoration: none; color: #1a5fb4; }
-    h2 { border-bottom: 1px solid #ddd; padding-bottom: 6px; margin-top: 36px; }
-    a { color: #1a5fb4; }
-  </style>
+  <meta name="description" content="Eric Matchett — Senior Staff AI Engineer. Computer Vision, Robotics & Multimodal AI Systems." />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#research">Research</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="page">
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <nav class="side-nav">
+        <a href="#top">&#9656; Home</a>
+        <a href="#about">&#9656; About</a>
+        <a href="#education">&#9656; Education</a>
+        <a href="#experience">&#9656; Experience</a>
+        <a href="#works">&#9656; Selected Work</a>
+        <a href="#skills">&#9656; Skills</a>
+        <a href="#contact">&#9656; Contact</a>
+      </nav>
+      <hr />
+      <!-- To add a photo: drop a file in assets/ and uncomment the line below.
+      <img class="portrait" src="assets/portrait.jpg" alt="Eric Matchett" /> -->
+    </aside>
 
-  <h1>Eric Matchett</h1>
-  <p class="subtitle">Your title / role here</p>
+    <!-- MAIN COLUMN -->
+    <main class="content" id="top">
+      <h1 class="name">Eric Matchett</h1>
+      <p class="title">
+        Senior Staff AI Engineer &mdash; Computer Vision, Robotics &amp; Multimodal AI Systems<br />
+        Google X
+      </p>
+      <p class="links">
+        <a href="#">[Github]</a> <a href="#">[Google Scholar]</a><br />
+        <a href="#">[LinkedIn]</a> <a href="tel:+13239909585">[Phone]</a><br />
+        matchetteric1 at gmail dot com
+      </p>
 
-  <h2 id="about">About</h2>
-  <p>Write a short bio here. This is where you introduce yourself,
-     your background, and what you work on.</p>
+      <h2 id="about">About me</h2>
+      <p>
+        I'm a Senior Staff Machine Learning Engineer at <a href="#">Google X</a>, where I lead
+        the computer vision and multimodal AI work behind the Tapestry Grid Intelligence
+        Platform. I received my M.S. in Artificial Intelligence from
+        <a href="#">Carnegie Mellon University</a> and my B.S. in Computer Science and Applied
+        Mathematics from the <a href="#">University of Illinois Urbana-Champaign</a>. Throughout
+        my career I have worked across autonomous vehicles, robotics, geospatial mapping,
+        agriculture technology, and energy infrastructure &mdash; including time at
+        <a href="#">Waymo</a>, <a href="#">Everyday Robots</a>, <a href="#">Mineral.AI</a>, and
+        the <a href="#">Google Self-Driving Car Project</a> &mdash; building machine learning
+        systems that operate in complex real-world environments.
+      </p>
 
-  <h2 id="research">Research / Work</h2>
-  <p>Describe your projects, publications, or work here.</p>
+      <h3>Research Interest</h3>
+      <p>
+        My mission is to build AI systems that help machines perceive, understand, and interact
+        with the physical world. I have been approaching this from several angles: 1) computer
+        vision and multimodal learning that combine visual, spatial, and sensor information at
+        scale; 2) perception, localization, and sensor fusion for autonomous systems; and 3)
+        decision-making and planning, including using large language models and vision-language
+        models for robot reasoning. Most recently, I have been exploring foundation models and
+        multimodal AI for real-world applications ranging from autonomous systems and robotics to
+        crop intelligence and power-grid optimization.
+      </p>
 
-  <h2 id="contact">Contact</h2>
-  <p>Email: your-email@example.com</p>
+      <h3 id="works">See my work in action</h3>
+      <div class="works">
+        <figure class="work">
+          <a href="#"><span class="work-title">SayCan</span></a>
+          <div class="thumb">
+            <img src="assets/saycan.jpg" alt="SayCan demo" loading="lazy" />
+          </div>
+          <figcaption>LLMs for grounded robot planning from natural-language instructions.</figcaption>
+        </figure>
+        <figure class="work">
+          <a href="#"><span class="work-title">RT-2</span></a>
+          <div class="thumb">
+            <video controls poster="assets/video-poster.jpg" preload="metadata">
+              <source src="assets/rt2-demo.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <figcaption>A single vision-language-action model that perceives and acts.</figcaption>
+        </figure>
+        <figure class="work">
+          <a href="#"><span class="work-title">PaLM-E</span></a>
+          <div class="thumb">
+            <img src="assets/palm-e.jpg" alt="PaLM-E" loading="lazy" />
+          </div>
+          <figcaption>An embodied multimodal language model that perceives and reasons.</figcaption>
+        </figure>
+      </div>
 
-  <hr>
-  <p style="color:#999; font-size:0.9em;">&copy; Eric Matchett</p>
+      <h2 class="news-head" id="news">News:</h2>
+      <ul class="news">
+        <li>2024.8 &nbsp;I joined <a href="#">Google X</a> as Senior Staff ML Engineer, leading computer vision and multimodal AI for the Tapestry Grid Intelligence Platform.</li>
+        <li>2023.10 &nbsp;I joined <a href="#">Waymo</a> as Tech Lead and Staff Software Engineer on the Waymo Driver AI platform.</li>
+        <li>2023.1 &nbsp;I started at <a href="#">Mineral.AI</a> as a Research Data Scientist on the Mineral Crop Intelligence Platform.</li>
+        <li>2023.3 &nbsp;<a href="#">PaLM-E</a> is out &mdash; an embodied multimodal language model for perception and reasoning.</li>
+        <li>2022.7 &nbsp;<a href="#">RT-2</a> shows that a single model can both perceive and act, outputting robot actions from visual inputs.</li>
+        <li>2022.4 &nbsp;<a href="#">SayCan</a> was reported by 260+ media outlets, including TechCrunch, WIRED, Reuters, and The Washington Post.</li>
+      </ul>
+
+      <h2 id="education">Education</h2>
+      <ul class="plain">
+        <li><strong>Carnegie Mellon University</strong> &mdash; M.S., Artificial Intelligence. Pittsburgh, PA, 2006.</li>
+        <li><strong>University of Illinois Urbana-Champaign</strong> &mdash; B.S., Computer Science and Applied Mathematics. Champaign, IL, 2005&ndash;2009.</li>
+      </ul>
+
+      <h2 id="experience">Experience</h2>
+      <ul class="exp">
+        <li>
+          <span class="exp-when">2024.8 &ndash; Present</span>
+          <strong>Senior Staff Machine Learning Engineer &mdash; AI</strong>, Google X, Mountain View, CA.
+          I lead the computer vision and multimodal AI work behind the Tapestry Grid Intelligence
+          Platform, heading cross-functional teams that build the AI models and large-scale
+          production systems supporting utility operations. Working in Python with PyTorch,
+          TensorFlow, and JAX, I apply computer vision, foundation models, and graph neural networks
+          across satellite/aerial imagery and time-series telemetry to improve grid visibility,
+          infrastructure understanding, and power-grid optimization.
+        </li>
+        <li>
+          <span class="exp-when">2023.10 &ndash; 2024.7</span>
+          <strong>Tech Lead, Staff Software Engineer &mdash; AI/ML</strong>, Waymo, San Francisco, CA.
+          I led cross-functional initiatives across the ML, perception, and infrastructure teams on
+          the Waymo Driver AI platform. I built the multimodal AI and sensor-fusion models powering
+          perception and scene understanding (Python, C++, TensorFlow, PyTorch, JAX), focused on
+          behavior prediction and decision-making accuracy, and developed distributed training and
+          simulation pipelines to safely scale ride-hailing.
+        </li>
+        <li>
+          <span class="exp-when">2023.1 &ndash; 2023.9</span>
+          <strong>Research Data Scientist</strong>, Mineral.AI, Mountain View, CA.
+          I built AI-powered agricultural intelligence on the Mineral Crop Intelligence Platform,
+          combining computer vision, remote sensing, and field-sensor data. I developed the
+          computer-vision pipelines and deep-learning models &mdash; image segmentation, object
+          detection, and geospatial analytics across satellite and drone imagery &mdash; that turned
+          massive imagery datasets into actionable field-level insights.
+        </li>
+        <li>
+          <span class="exp-when">2019.11 &ndash; 2022.12</span>
+          <strong>Staff Research Scientist &mdash; ML</strong>, Everyday Robots, Mountain View, CA.
+          I worked on robot semantic planning in complex, unstructured environments. I co-led SayCan,
+          a system that uses LLMs for robot planning from natural-language instructions, and
+          contributed to RT-2 and PaLM-E, combining vision-language models and LLMs for semantic
+          scene understanding and action.
+        </li>
+        <li>
+          <span class="exp-when">2016.12 &ndash; 2019.11</span>
+          <strong>Staff Software Engineer &mdash; ML</strong>, Waymo, Phoenix, AZ.
+          I led the Waymo Perception System, improving object-detection reliability and cutting false
+          positives in busy urban driving. In C++, Python, and TensorFlow I built the sensor-fusion
+          layer combining LiDAR, radar, and camera, and developed a high-precision localization and
+          mapping platform delivering centimeter-level positioning against HD maps.
+        </li>
+        <li>
+          <span class="exp-when">2015.9 &ndash; 2016.1</span>
+          <strong>Senior Software Engineer &mdash; Self-Driving Cars</strong>, Google X, Mountain View, CA.
+          I worked on the autonomous vehicle's perception and localization platform, fusing camera,
+          LiDAR, radar, GPS, and IMU data so the vehicle could understand its surroundings and
+          determine its position in real time.
+        </li>
+        <li>
+          <span class="exp-when">2013.12 &ndash; 2015.8</span>
+          <strong>Research Assistant</strong>, Carnegie Mellon University, Pittsburgh, PA.
+          I conducted research in computer vision, machine learning, and autonomous systems,
+          developing perception, localization, and sensor-fusion algorithms for robotics and
+          self-driving vehicle applications.
+        </li>
+        <li>
+          <span class="exp-when">2010.1 &ndash; 2013.10</span>
+          <strong>Software Engineer &mdash; Street View</strong>, Google, Mountain View, CA.
+          I developed large-scale backend and data-processing systems for Google Street View,
+          bringing together imagery, GPS, and sensor data to improve panorama localization accuracy
+          and support global map generation at scale.
+        </li>
+        <li>
+          <span class="exp-when">2005.12 &ndash; 2009.8</span>
+          <strong>Research Assistant</strong>, University of Illinois Urbana-Champaign, Champaign, IL.
+          I worked on research in computer vision and robotics, building data pipelines, running
+          model experiments, and analyzing sensor and image data.
+        </li>
+      </ul>
+
+      <h2 id="skills">Skills</h2>
+      <p>
+        <strong>AI &amp; ML:</strong> Foundation Models, Multimodal AI, LLMs, VLMs, Deep Learning,
+        Generative AI, Reinforcement Learning, Learning from Demonstration, Transfer Learning,
+        Representation Learning, Embodied AI, Agentic AI.<br />
+        <strong>Computer Vision &amp; Perception:</strong> Object Detection, Object Tracking, Image
+        Segmentation, Scene Understanding, Visual Localization, 3D Vision, Structure from Motion,
+        Sensor Fusion, SLAM, Remote Sensing, Geospatial Analytics, Video Understanding.<br />
+        <strong>Robotics &amp; Autonomous Systems:</strong> Robot Planning, Semantic Planning, Motion
+        Planning, Autonomous Navigation, Localization, Mapping, HD Maps, Behavior Prediction,
+        Trajectory Forecasting, Multi-Agent Systems, Human-Robot Interaction.<br />
+        <strong>Frameworks &amp; Languages:</strong> PyTorch, TensorFlow, JAX, Keras, OpenCV, CUDA,
+        TensorRT, Hugging Face Transformers, Ray; Python, C++, Go, Java, SQL, MATLAB, Bash.<br />
+        <strong>Data &amp; Infra:</strong> Distributed Training, Large-Scale Data Processing, Data
+        Pipelines, ETL, Apache Spark, Apache Beam, Apache Kafka, BigQuery; GCP, Vertex AI, Kubernetes,
+        Docker, Terraform, MLOps, CI/CD, Model Serving.
+      </p>
+
+      <h2 id="contact">Contact</h2>
+      <p>
+        Email: matchetteric1 at gmail dot com<br />
+        Phone: (323) 990-9585<br />
+        Location: Richmond, TX
+      </p>
+
+      <hr />
+      <p class="footer">&copy; <span id="year"></span> Eric Matchett</p>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
