@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Eric Matchett</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a href="index.html" class="brand">Eric Matchett</a>
+      <nav class="nav-links">
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="projects.html">Projects</a>
+        <a href="videos.html">Videos</a>
+        <a href="news.html">News</a>
+        <a href="experience.html">Experience</a>
+        <a href="education.html">Education</a>
+        <a href="contact.html">Contact</a>
+        <a href="resume.html">Resume</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap page">
+    <h1 class="page-title">About</h1>
+    <p class="page-intro">
+      I'm a Senior Staff AI Engineer at Google X, working on robotics, computer vision, and
+      multimodal AI systems. Across my career I have built machine learning systems for autonomous
+      vehicles, robotics, geospatial mapping, agriculture, and energy infrastructure. My work
+      focuses on building intelligent systems that can perceive the world, reason about it, and
+      take actions in the real world.
+    </p>
+
+    <h2 class="section-h">Research Interests</h2>
+    <div class="interests">
+      <div class="interest">
+        <svg viewBox="0 0 24 24"><rect x="5" y="7" width="14" height="11" rx="2"/><path d="M9 7V4h6v3M2 11v4M22 11v4"/></svg>
+        <span>Robotics &amp; Embodied AI</span>
+      </div>
+      <div class="interest">
+        <svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        <span>Computer Vision &amp; Perception</span>
+      </div>
+      <div class="interest">
+        <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.6 7.8 11 15M16.4 7.8 13 15M8 6h8"/></svg>
+        <span>Multimodal AI Systems</span>
+      </div>
+      <div class="interest">
+        <svg viewBox="0 0 24 24"><path d="M12 3a5 5 0 0 0-5 5c0 1.6.7 2.7 1.5 3.6.6.7 1 1.3 1 2.4v1h5v-1c0-1.1.4-1.7 1-2.4C17.3 10.7 18 9.6 18 8a5 5 0 0 0-6-5ZM9.5 19h5M10 21h4"/></svg>
+        <span>Reasoning &amp; Planning</span>
+      </div>
+      <div class="interest">
+        <svg viewBox="0 0 24 24"><path d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-4 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/><path d="M8 9h8M8 12h5"/></svg>
+        <span>LLMs for Real-World Use</span>
+      </div>
+    </div>
+
+    <h2 class="section-h">Technical Philosophy</h2>
+    <blockquote class="quote">"Build systems that are simple, reliable, and useful before making them complex."</blockquote>
+
+    <h2 class="section-h">Technical Stack</h2>
+    <div class="stack">
+      <div class="stack-col"><h4>Languages</h4><p>Python, C++, Go, Java, SQL, MATLAB, Bash</p></div>
+      <div class="stack-col"><h4>AI / ML</h4><p>PyTorch, TensorFlow, JAX, Keras, Hugging Face, Foundation Models, LLMs, VLMs</p></div>
+      <div class="stack-col"><h4>Computer Vision</h4><p>OpenCV, Object Detection, Segmentation, SLAM, 3D Vision, Sensor Fusion</p></div>
+      <div class="stack-col"><h4>Robotics</h4><p>Robot Planning, Motion Planning, Autonomous Navigation, Localization, Mapping</p></div>
+      <div class="stack-col"><h4>Tools &amp; Platforms</h4><p>GCP, Vertex AI, Kubernetes, Docker, Terraform, Spark, Beam, BigQuery</p></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>© <span class="year"></span> Eric Matchett. All rights reserved.</span>
+      <a href="#top" class="to-top" aria-label="Back to top">↑</a>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>

@@ -9,339 +9,95 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
-  <!-- TOP NAV -->
-  <header class="nav">
+  <header class="nav" id="top">
     <div class="wrap nav-inner">
-      <a href="#top" class="brand">Eric Matchett</a>
+      <a href="index.html" class="brand">Eric Matchett</a>
       <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#work">Work</a>
-        <a href="#news">News</a>
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
-        <a href="#videos">Videos</a>
-        <a href="#skills">Skills</a>
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="projects.html">Projects</a>
+        <a href="videos.html">Videos</a>
+        <a href="news.html">News</a>
+        <a href="experience.html">Experience</a>
+        <a href="education.html">Education</a>
+        <a href="contact.html">Contact</a>
+        <a href="resume.html">Resume</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀</button>
       </nav>
     </div>
   </header>
 
-  <main class="wrap" id="top">
+  <main class="wrap">
     <!-- HERO -->
     <section class="hero">
-      <p class="hi">Hi, I'm</p>
-      <h1>Eric Matchett</h1>
-      <p class="role">Senior Staff AI Engineer</p>
-      <p class="role-sub">Computer Vision · Robotics · Multimodal AI Systems</p>
-      <p class="role-sub">Google X</p>
-      <p class="tagline">Building AI systems that help machines perceive, understand, and interact with the physical world.</p>
-      <div class="socials">
-        <a href="https://github.com/ericmatchett1" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.79 2.73 1.27 3.4.97.1-.76.41-1.27.74-1.56-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.39-5.25 5.68.42.36.8 1.08.8 2.18v3.23c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
-          GitHub
-        </a>
-        <a href="#" target="_blank" rel="noopener" data-needs-url="linkedin">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM.2 8.25h4.55V24H.2V8.25ZM8.34 8.25h4.36v2.15h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 6.99V24h-4.55v-6.97c0-1.66-.03-3.8-2.32-3.8-2.32 0-2.67 1.81-2.67 3.68V24H8.34V8.25Z"/></svg>
-          LinkedIn
-        </a>
-        <a href="mailto:matchetteric1@gmail.com">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M2 4h20a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm10 7.2L3.5 6H20.5L12 11.2ZM3 7.6V18h18V7.6l-9 5.5-9-5.5Z"/></svg>
-          Email
-        </a>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="row" id="about">
-      <div class="row-label"><h2>About</h2></div>
-      <div class="row-body">
-        <p class="about-text">
-          I'm a Senior Staff AI Engineer at Google X, working on robotics, computer vision, and
-          multimodal AI systems. Across my career I have built machine learning systems for
-          autonomous vehicles, robotics, geospatial mapping, agriculture, and energy
-          infrastructure. My work focuses on building intelligent systems that can perceive the
-          world, reason about it, and take actions in the real world.
-        </p>
-      </div>
-    </section>
-
-    <!-- RESEARCH INTEREST -->
-    <section class="row" id="research">
-      <div class="row-label"><h2>Research Interest</h2></div>
-      <div class="row-body">
-        <div class="interests">
-          <div class="interest">
-            <svg viewBox="0 0 24 24"><rect x="5" y="7" width="14" height="11" rx="2"/><path d="M9 7V4h6v3M9 13h0M15 13h0M2 11v4M22 11v4"/></svg>
-            <span>Robotics &amp; Embodied AI</span>
-          </div>
-          <div class="interest">
-            <svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-            <span>Computer Vision &amp; Perception</span>
-          </div>
-          <div class="interest">
-            <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.6 7.8 11 15M16.4 7.8 13 15M8 6h8"/></svg>
-            <span>Multimodal AI Systems</span>
-          </div>
-          <div class="interest">
-            <svg viewBox="0 0 24 24"><path d="M12 3a5 5 0 0 0-5 5c0 1.6.7 2.7 1.5 3.6.6.7 1 1.3 1 2.4v1h5v-1c0-1.1.4-1.7 1-2.4C17.3 10.7 18 9.6 18 8a5 5 0 0 0-6-5ZM9.5 19h5M10 21h4"/></svg>
-            <span>Reasoning &amp; Planning</span>
-          </div>
-          <div class="interest">
-            <svg viewBox="0 0 24 24"><path d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-4 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/><path d="M8 9h8M8 12h5"/></svg>
-            <span>LLMs for Real-World Use</span>
-          </div>
+      <div>
+        <h1>Eric Matchett</h1>
+        <p class="role">Senior Staff AI Engineer at <a href="https://x.company/" target="_blank" rel="noopener">Google X</a></p>
+        <p class="role-sub">Computer Vision · Robotics · Multimodal AI Systems</p>
+        <p class="tagline">Building AI systems that help machines perceive, understand, and interact with the physical world.</p>
+        <div class="hero-btns">
+          <a class="btn btn-primary" href="about.html">About Me</a>
+          <a class="btn" href="research.html">Research</a>
+          <a class="btn" href="resume.html">Resume</a>
         </div>
       </div>
-    </section>
-
-    <!-- WORK -->
-    <section class="row" id="work">
-      <div class="row-label"><h2>Work in Action</h2></div>
-      <div class="row-body">
-        <div class="cards">
-          <article class="card">
-            <h3>SayCan</h3>
-            <p>LLMs for grounded robot planning from natural-language instructions.</p>
-            <a class="card-link" href="https://say-can.github.io/" target="_blank" rel="noopener">View Project &rarr;</a>
-          </article>
-          <article class="card">
-            <h3>RT-2</h3>
-            <p>A vision-language-action model that perceives and acts.</p>
-            <a class="card-link" href="https://robotics-transformer2.github.io/" target="_blank" rel="noopener">View Project &rarr;</a>
-          </article>
-          <article class="card">
-            <h3>PaLM-E</h3>
-            <p>An embodied multimodal language model for perception and reasoning.</p>
-            <a class="card-link" href="https://palm-e.github.io/" target="_blank" rel="noopener">View Project &rarr;</a>
-          </article>
-          <article class="card">
-            <h3>Tapestry Grid Intelligence</h3>
-            <p>Computer vision and foundation models to model and optimize large-scale power grids.</p>
-            <a class="card-link" href="https://x.company/projects/tapestry/" target="_blank" rel="noopener">View Project &rarr;</a>
-          </article>
-          <article class="card">
-            <h3>Inner Monologue</h3>
-            <p>Closed-loop robot planning with LLMs, reasoning from environment feedback.</p>
-            <a class="card-link" href="https://innermonologue.github.io/" target="_blank" rel="noopener">View Project &rarr;</a>
-          </article>
-          <article class="card">
-            <h3>Waymo Driver</h3>
-            <p>Perception, sensor fusion, and localization for autonomous driving.</p>
-            <a class="card-link" href="https://waymo.com/" target="_blank" rel="noopener">View Project &rarr;</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- NEWS -->
-    <section class="row" id="news">
-      <div class="row-label"><h2>News</h2></div>
-      <div class="row-body">
-        <ul class="news">
-          <li>
-            <span class="news-date">2024.08</span>
-            <span class="news-text">Joined <a href="https://x.company/" target="_blank" rel="noopener">Google X</a> as Senior Staff ML Engineer, leading computer vision and multimodal AI for the Tapestry Grid Intelligence Platform.</span>
-          </li>
-          <li>
-            <span class="news-date">2023.10</span>
-            <span class="news-text">Joined <a href="https://waymo.com/" target="_blank" rel="noopener">Waymo</a> as Tech Lead and Staff Software Engineer on the Waymo Driver AI platform.</span>
-          </li>
-          <li>
-            <span class="news-date">2023.03</span>
-            <span class="news-text"><a href="https://palm-e.github.io/" target="_blank" rel="noopener">PaLM-E</a>: an embodied multimodal language model for perception and reasoning is released.</span>
-          </li>
-          <li>
-            <span class="news-date">2022.07</span>
-            <span class="news-text"><a href="https://robotics-transformer2.github.io/" target="_blank" rel="noopener">RT-2</a> shows a single model can both perceive and act, outputting robot actions from visual inputs.</span>
-          </li>
-          <li>
-            <span class="news-date">2022.04</span>
-            <span class="news-text"><a href="https://say-can.github.io/" target="_blank" rel="noopener">SayCan</a> reported by 260+ media outlets including TechCrunch, WIRED, Reuters, and The Washington Post.</span>
-          </li>
+      <aside class="focus-card">
+        <h4>Current Focus</h4>
+        <ul>
+          <li>Embodied AI</li>
+          <li>Vision-Language Models</li>
+          <li>Robotics Foundation Models</li>
+          <li>AI for Real-World Systems</li>
         </ul>
+      </aside>
+    </section>
+
+    <!-- FEATURED WORK -->
+    <section class="home-section">
+      <div class="home-head">
+        <h2>Featured Work</h2>
+        <a href="projects.html">View all projects &rarr;</a>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <h3>SayCan</h3>
+          <p>LLMs for grounded robot planning from natural-language instructions.</p>
+          <a class="card-link" href="https://say-can.github.io/" target="_blank" rel="noopener">View Project &rarr;</a>
+        </article>
+        <article class="card">
+          <h3>RT-2</h3>
+          <p>A vision-language-action model that perceives and acts.</p>
+          <a class="card-link" href="https://robotics-transformer2.github.io/" target="_blank" rel="noopener">View Project &rarr;</a>
+        </article>
+        <article class="card">
+          <h3>PaLM-E</h3>
+          <p>An embodied multimodal language model for perception and reasoning.</p>
+          <a class="card-link" href="https://palm-e.github.io/" target="_blank" rel="noopener">View Project &rarr;</a>
+        </article>
       </div>
     </section>
 
-    <!-- EDUCATION -->
-    <section class="row" id="education">
-      <div class="row-label"><h2>Education</h2></div>
-      <div class="row-body">
-        <div class="edu-item">
-          <h3>Carnegie Mellon University</h3>
-          <p class="edu-deg">Master of Science in Artificial Intelligence</p>
-          <p class="edu-date">Pittsburgh, PA · 2006</p>
-        </div>
-        <div class="edu-item">
-          <h3>University of Illinois Urbana-Champaign</h3>
-          <p class="edu-deg">Bachelor of Science in Computer Science &amp; Applied Mathematics</p>
-          <p class="edu-date">Champaign, IL · 2005–2009</p>
-        </div>
+    <!-- LATEST VIDEO -->
+    <section class="home-section">
+      <div class="home-head">
+        <h2>Latest Video</h2>
+        <a href="videos.html">View all videos &rarr;</a>
       </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section class="row" id="experience">
-      <div class="row-label"><h2>Experience</h2></div>
-      <div class="row-body">
-        <ol class="timeline">
-          <li>
-            <span class="tl-date">2024.08 – Present</span>
-            <div class="tl-main">
-              <h3>Senior Staff Machine Learning Engineer — AI</h3>
-              <p class="tl-org">Google X</p>
-              <p>I lead the computer vision and multimodal AI work behind the Tapestry Grid Intelligence Platform, heading cross-functional teams that build the AI models and large-scale production systems for utility operations. Working in Python with PyTorch, TensorFlow, and JAX, I apply computer vision, foundation models, and graph neural networks across satellite/aerial imagery and time-series telemetry.</p>
-            </div>
-          </li>
-          <li>
-            <span class="tl-date">2023.10 – 2024.07</span>
-            <div class="tl-main">
-              <h3>Tech Lead, Staff Software Engineer — AI/ML</h3>
-              <p class="tl-org">Waymo</p>
-              <p>I led cross-functional initiatives across the ML, perception, and infrastructure teams on the Waymo Driver AI platform. I built the multimodal AI and sensor-fusion models powering perception and scene understanding, focused on behavior prediction and decision-making, and developed distributed training and simulation pipelines to scale ride-hailing.</p>
-            </div>
-          </li>
-          <li>
-            <span class="tl-date">2023.01 – 2023.09</span>
-            <div class="tl-main">
-              <h3>Research Data Scientist</h3>
-              <p class="tl-org">Mineral.AI</p>
-              <p>I built AI-powered agricultural intelligence on the Mineral Crop Intelligence Platform, combining computer vision, remote sensing, and field-sensor data. I developed the computer-vision pipelines and deep-learning models — image segmentation, object detection, and geospatial analytics across satellite and drone imagery.</p>
-            </div>
-          </li>
-          <li>
-            <span class="tl-date">2019.11 – 2022.12</span>
-            <div class="tl-main">
-              <h3>Staff Research Scientist — ML</h3>
-              <p class="tl-org">Everyday Robots</p>
-              <p>I worked on robot semantic planning in complex, unstructured environments. I co-led SayCan, which uses LLMs for robot planning from natural-language instructions, and contributed to RT-2 and PaLM-E, combining vision-language models and LLMs for semantic scene understanding and action.</p>
-            </div>
-          </li>
-          <li>
-            <span class="tl-date">2016.12 – 2019.11</span>
-            <div class="tl-main">
-              <h3>Staff Software Engineer — ML</h3>
-              <p class="tl-org">Waymo</p>
-              <p>I led the Waymo Perception System, improving object-detection reliability and cutting false positives in busy urban driving. In C++, Python, and TensorFlow I built the sensor-fusion layer combining LiDAR, radar, and camera, and developed a localization and mapping platform delivering centimeter-level positioning against HD maps.</p>
-            </div>
-          </li>
-          <li>
-            <span class="tl-date">2015.09 – 2016.01</span>
-            <div class="tl-main">
-              <h3>Senior Software Engineer — Self-Driving Cars</h3>
-              <p class="tl-org">Google X</p>
-              <p>I worked on the autonomous vehicle's perception and localization platform, fusing camera, LiDAR, radar, GPS, and IMU data so the vehicle could understand its surroundings and determine its position in real time.</p>
-            </div>
-          </li>
-          <li>
-            <span class="tl-date">2013.12 – 2015.08</span>
-            <div class="tl-main">
-              <h3>Research Assistant</h3>
-              <p class="tl-org">Carnegie Mellon University</p>
-              <p>I conducted research in computer vision, machine learning, and autonomous systems, developing perception, localization, and sensor-fusion algorithms for robotics and self-driving vehicle applications.</p>
-            </div>
-          </li>
-          <li>
-            <span class="tl-date">2010.01 – 2013.10</span>
-            <div class="tl-main">
-              <h3>Software Engineer — Street View</h3>
-              <p class="tl-org">Google</p>
-              <p>I developed large-scale backend and data-processing systems for Google Street View, bringing together imagery, GPS, and sensor data to improve panorama localization accuracy and support global map generation at scale.</p>
-            </div>
-          </li>
-          <li>
-            <span class="tl-date">2005.12 – 2009.08</span>
-            <div class="tl-main">
-              <h3>Research Assistant</h3>
-              <p class="tl-org">University of Illinois Urbana-Champaign</p>
-              <p>I worked on research in computer vision and robotics, building data pipelines, running model experiments, and analyzing sensor and image data.</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- VIDEOS -->
-    <section class="row" id="videos">
-      <div class="row-label"><h2>Videos</h2></div>
-      <div class="row-body">
-        <div class="videos">
-          <figure class="video">
-            <div class="video-media">
-              <img src="https://say-can.github.io/img/saycan-llm.gif" alt="SayCan demo" loading="lazy" />
-            </div>
-            <figcaption><strong>SayCan</strong><span>Robot planning with LLMs.</span></figcaption>
-          </figure>
-          <figure class="video">
-            <div class="video-media">
-              <video autoplay muted loop playsinline controls preload="metadata">
-                <source src="https://robotics-transformer2.github.io/videos/rt2_teaser.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <figcaption><strong>RT-2</strong><span>Vision-language-action model.</span></figcaption>
-          </figure>
-          <figure class="video">
-            <div class="video-media">
-              <video autoplay muted loop playsinline controls preload="metadata">
-                <source src="https://palm-e.github.io/videos/palm-e-teaser.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <figcaption><strong>PaLM-E</strong><span>Embodied multimodal AI.</span></figcaption>
-          </figure>
-          <figure class="video">
-            <div class="video-media">
-              <video autoplay muted loop playsinline controls preload="metadata">
-                <source src="https://storage.googleapis.com/gweb-x-cdn/x/uploads/e122eb54c25953cdac8d787b91a6588ffab38ef5.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <figcaption><strong>Tapestry Grid Intelligence</strong><span>AI for the electric grid.</span></figcaption>
-          </figure>
-          <figure class="video">
-            <div class="video-media">
-              <video autoplay muted loop playsinline controls preload="metadata">
-                <source src="https://innermonologue.github.io/img/im_demo1_an.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <figcaption><strong>Inner Monologue</strong><span>Closed-loop planning with LLMs.</span></figcaption>
-          </figure>
-          <figure class="video">
-            <div class="video-media">
-              <video autoplay muted loop playsinline controls preload="metadata">
-                <source src="https://storage.googleapis.com/waymo-prod-cdn/uploads/40b467ff5944cfec50204f6e71da7f52-splash_11_30.compressed.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <figcaption><strong>Waymo Driver</strong><span>Perception &amp; sensor fusion.</span></figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section class="row" id="skills">
-      <div class="row-label"><h2>Skills</h2></div>
-      <div class="row-body">
-        <div class="skills">
-          <div class="skill-col">
-            <h4>Languages</h4>
-            <p>Python, C++, Go, Java, SQL, MATLAB, Bash</p>
+      <div class="latest-video">
+        <figure class="video">
+          <div class="video-media">
+            <video autoplay muted loop playsinline controls preload="metadata">
+              <source src="https://robotics-transformer2.github.io/videos/rt2_teaser.mp4" type="video/mp4" />
+            </video>
           </div>
-          <div class="skill-col">
-            <h4>AI / ML</h4>
-            <p>PyTorch, TensorFlow, JAX, Keras, Hugging Face, Foundation Models, LLMs, VLMs, Reinforcement Learning</p>
-          </div>
-          <div class="skill-col">
-            <h4>Computer Vision</h4>
-            <p>OpenCV, Object Detection, Segmentation, SLAM, 3D Vision, Sensor Fusion, Remote Sensing</p>
-          </div>
-          <div class="skill-col">
-            <h4>Robotics</h4>
-            <p>Robot Planning, Motion Planning, Autonomous Navigation, Localization, Mapping, Behavior Prediction</p>
-          </div>
-          <div class="skill-col">
-            <h4>Tools &amp; Platforms</h4>
-            <p>GCP, Vertex AI, Kubernetes, Docker, Terraform, Spark, Beam, Kafka, BigQuery, CUDA, TensorRT, Ray</p>
-          </div>
+        </figure>
+        <div>
+          <h3>RT-2: Vision-Language-Action Model</h3>
+          <p class="muted">A single model that perceives and acts — directly outputting robot actions from visual inputs, bringing web-scale knowledge into robotic control.</p>
+          <p class="linkrow"><a href="videos.html">Browse all videos &rarr;</a></p>
         </div>
       </div>
     </section>
@@ -349,26 +105,10 @@
 
   <footer class="footer">
     <div class="wrap footer-inner">
-      <span>© <span id="year"></span> Eric Matchett. All rights reserved.</span>
+      <span>© <span class="year"></span> Eric Matchett. All rights reserved.</span>
       <a href="#top" class="to-top" aria-label="Back to top">↑</a>
     </div>
   </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    // Active nav highlight on scroll
-    const links = [...document.querySelectorAll('.nav-links a')];
-    const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        const a = map.get(e.target.id);
-        if (a && e.isIntersecting) {
-          links.forEach(l => l.classList.remove('active'));
-          a.classList.add('active');
-        }
-      });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    document.querySelectorAll('section[id]').forEach(s => obs.observe(s));
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>

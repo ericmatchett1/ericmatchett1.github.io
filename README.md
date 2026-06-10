@@ -1,28 +1,26 @@
 # ericmatchett1.github.io
 
-Personal portfolio for **Eric Matchett** — Senior Staff AI Engineer (Computer Vision, Robotics & Multimodal AI).
+Multi-page personal portfolio for **Eric Matchett** — Senior Staff AI Engineer
+(Computer Vision, Robotics & Multimodal AI). Static HTML, no build step.
 
-A single-page, static site — no build step.
+## Pages
+`index.html` (Home), `about.html`, `research.html`, `projects.html`,
+`videos.html`, `news.html`, `experience.html`, `education.html`,
+`contact.html`, `resume.html`.
 
-## Files
-- `index.html` — page content (About, Experience, Research, Media, Skills, Contact)
-- `style.css` — all styling
-- `assets/` — media files for the Media section (see `assets/README.md`)
+## Shared
+- `style.css` — all styling (light + dark theme via `:root[data-theme="dark"]`)
+- `main.js` — theme toggle (persisted to localStorage), active-nav highlight,
+  year stamp, and the project/video filter tabs
+- `assets/` — see `assets/README.md` (add `eric-matchett.pdf` for the resume download)
 
 ## Run locally
-Just open `index.html` in a browser, or serve the folder:
+Open `index.html`, or serve the folder:
 
 ```bash
-python -m http.server 8000
-# then visit http://localhost:8000
+python -m http.server 8000   # http://localhost:8000
 ```
 
-## Deploy (GitHub Pages)
-This repo is named `ericmatchett1.github.io`, so pushing to the default branch
-publishes it at `https://ericmatchett1.github.io/` (enable Pages → Deploy from
-branch → `main` / root in repo Settings if not already on).
-
-## Customize
-- Edit text directly in `index.html`.
-- Swap colors/fonts via the CSS variables at the top of `style.css` (`--accent`, etc.).
-- Add your video/image to `assets/` using the filenames listed in `assets/README.md`.
+## Deploy
+Repo is `ericmatchett1.github.io`, so the default branch publishes to
+`https://ericmatchett1.github.io/`.
