@@ -30,19 +30,24 @@
 
   <!-- Progress rail -->
   <nav class="exp-rail" aria-label="Career progress">
-    <a href="#exp-1"><span class="dot"></span><span class="lbl">Google X</span></a>
-    <a href="#exp-2"><span class="dot"></span><span class="lbl">Waymo</span></a>
-    <a href="#exp-3"><span class="dot"></span><span class="lbl">Mineral AI</span></a>
-    <a href="#exp-4"><span class="dot"></span><span class="lbl">Everyday Robots</span></a>
-    <a href="#exp-5"><span class="dot"></span><span class="lbl">Google</span></a>
-    <a href="#exp-6"><span class="dot"></span><span class="lbl">Carnegie Mellon</span></a>
+    <div class="exp-rail-head">MY JOURNEY</div>
+    <a href="#exp-1"><span class="dot"></span><b>01</b><span class="nm">Google X</span><i>2024 – Present</i></a>
+    <a href="#exp-2"><span class="dot"></span><b>02</b><span class="nm">Waymo</span><i>2023 – 2024</i></a>
+    <a href="#exp-3"><span class="dot"></span><b>03</b><span class="nm">Mineral AI</span><i>2023</i></a>
+    <a href="#exp-4"><span class="dot"></span><b>04</b><span class="nm">Everyday Robots</span><i>2019 – 2022</i></a>
+    <a href="#exp-5"><span class="dot"></span><b>05</b><span class="nm">Google Street View</span><i>2010 – 2016</i></a>
+    <a href="#exp-6"><span class="dot"></span><b>06</b><span class="nm">Carnegie Mellon</span><i>2013 – 2015</i></a>
   </nav>
 
   <main class="wrap">
     <section class="exp-hero">
-      <h1>Experience</h1>
-      <p>A journey building AI systems that perceive, reason, and act in the physical world.</p>
-      <p class="exp-scrollhint"><span>↓ Scroll to explore my journey ↓</span></p>
+      <canvas class="ab-particles"></canvas>
+      <div class="exp-hero-inner">
+        <p class="eyebrow">Experience</p>
+        <h1>A Journey Building AI Systems</h1>
+        <p>From research to real-world impact — building intelligent systems that perceive, reason, and act in the physical world.</p>
+        <p class="exp-scrollhint"><span>↓ Scroll to explore my journey ↓</span></p>
+      </div>
     </section>
 
     <!-- 01 Google X -->
@@ -78,7 +83,7 @@
 
     <!-- 02 Waymo -->
     <section class="exp-section" id="exp-2">
-      <div class="exp-grid">
+      <div class="exp-grid flip">
         <div class="exp-media">
           <div class="exp-scene">
             <img class="scene-photo" src="/assets/exp/waymo.jpg" alt="Waymo" onerror="this.remove()" />
@@ -137,7 +142,7 @@
 
     <!-- 04 Everyday Robots -->
     <section class="exp-section" id="exp-4">
-      <div class="exp-grid">
+      <div class="exp-grid flip">
         <div class="exp-media">
           <div class="exp-scene">
             <img class="scene-photo" src="/assets/exp/everyday-robots.jpg" alt="Everyday Robots" onerror="this.remove()" />
@@ -195,7 +200,7 @@
 
     <!-- 06 Carnegie Mellon -->
     <section class="exp-section" id="exp-6">
-      <div class="exp-grid">
+      <div class="exp-grid flip">
         <div class="exp-media">
           <div class="exp-scene">
             <img class="scene-photo" src="/assets/exp/cmu.jpg" alt="Carnegie Mellon University" onerror="this.remove()" />
@@ -224,15 +229,19 @@
 
     <!-- End of journey -->
     <section class="exp-end">
-      <h2>15+ Years of Building AI Systems</h2>
+      <h2>15+ Years of Building AI Systems That Make Real-World Impact</h2>
       <div class="exp-path">
-        <span>Computer Vision Research</span><i>→</i>
+        <span>Research</span><i>→</i>
+        <span>Computer Vision</span><i>→</i>
         <span>Autonomous Driving</span><i>→</i>
         <span>Robotics</span><i>→</i>
-        <span>Multimodal Foundation Models</span><i>→</i>
-        <span>AI for Critical Infrastructure</span>
+        <span>Multimodal AI</span><i>→</i>
+        <span>Critical Infrastructure</span>
       </div>
-      <a class="btn btn-primary" href="/resume/">⬇ Download Resume</a>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a class="btn btn-primary" href="/resume/">⬇ Download Resume</a>
+        <a class="btn" href="/#contact">Let's Connect <span class="arr">→</span></a>
+      </div>
     </section>
   </main>
 
