@@ -344,7 +344,7 @@ section[id] { scroll-margin-top: 80px; }
 
 /* ============ Hybrid: home compact + detail pages ============ */
 /* Quick stats row */
-.stats-row { border: 1px solid var(--line); border-radius: 16px; background: var(--card-bg); display: grid; grid-template-columns: repeat(4, 1fr); }
+.stats-row { border: 1px solid var(--line); border-radius: 16px; background: var(--card-bg); display: grid; grid-template-columns: repeat(3, 1fr); }
 .stats-row .stat { padding: 22px 24px; border-left: 1px solid var(--line); display: flex; gap: 14px; align-items: center; }
 .stats-row .stat:first-child { border-left: none; }
 .stats-row .stat .ico { width: 38px; height: 38px; border-radius: 10px; background: var(--soft-blue); display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
@@ -376,7 +376,8 @@ section[id] { scroll-margin-top: 80px; }
 .xp-card { border: 1px solid var(--line); border-radius: 14px; background: var(--card-bg); padding: 20px 22px; transition: transform .2s ease, box-shadow .2s ease; }
 .xp-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(15,23,42,.08); }
 .xp-head { display: flex; gap: 14px; align-items: center; }
-.xp-logo { width: 42px; height: 42px; border-radius: 10px; background: var(--soft-blue); color: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 800; flex: 0 0 auto; transition: filter .2s ease; }
+.xp-logo { width: 42px; height: 42px; border-radius: 10px; background: #fff; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; font-weight: 800; flex: 0 0 auto; overflow: hidden; transition: filter .2s ease; }
+.xp-logo img { width: 26px; height: 26px; object-fit: contain; }
 .xp-card:hover .xp-logo { filter: brightness(1.08); }
 .xp-head h3 { margin: 0; font-size: 1.05rem; }
 .xp-org { margin: 1px 0 0; color: var(--accent); font-weight: 600; font-size: .9rem; }
@@ -385,7 +386,11 @@ section[id] { scroll-margin-top: 80px; }
 
 /* University + coursework + awards */
 .uni-card { border: 1px solid var(--line); border-radius: 16px; background: var(--card-bg); padding: 24px; display: flex; gap: 18px; align-items: flex-start; }
-.uni-logo { width: 54px; height: 54px; border-radius: 12px; background: var(--soft-blue); color: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.15rem; flex: 0 0 auto; }
+.uni-logo { width: 54px; height: 54px; border-radius: 12px; background: #fff; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.15rem; flex: 0 0 auto; overflow: hidden; }
+.uni-logo img { width: 34px; height: 34px; object-fit: contain; }
+/* Hero real image (optional; falls back to animated SVG) */
+.ab-hero-right .hero-img { display: none; width: 100%; max-width: 540px; margin-left: auto; }
+.ab-hero-right .hero-img.show { display: block; }
 .uni-card h3 { margin: 0 0 2px; font-size: 1.1rem; }
 .checklist { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px 20px; }
 .checklist li { display: flex; align-items: center; gap: 9px; font-size: .92rem; }
