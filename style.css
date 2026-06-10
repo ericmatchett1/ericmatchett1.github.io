@@ -517,7 +517,6 @@ section[id] { scroll-margin-top: 80px; }
 .exp-role { font-weight: 700; font-size: 1.08rem; margin: 4px 0 2px; }
 .exp-meta { color: var(--muted); font-size: .9rem; margin: 0 0 14px; }
 .exp-desc { color: #475569; margin: 0 0 20px; }
-:root[data-theme="dark"] .exp-desc { color: #aab6c8; }
 .exp-points { display: flex; flex-direction: column; gap: 14px; margin: 0 0 20px; }
 .exp-point { display: flex; gap: 12px; }
 .exp-point .pi { width: 38px; height: 38px; border-radius: 10px; background: var(--soft-blue); display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
@@ -544,6 +543,25 @@ section[id] { scroll-margin-top: 80px; }
   .exp-scene { opacity: 1; transform: none; }
   .exp-scrollhint span, .scene-core::before { animation: none; }
 }
+
+/* White content card (matches mockup) over the dark page */
+.exp-body {
+  background: #ffffff; color: #0f172a;
+  border-radius: 28px; padding: 32px 34px;
+  border: 1px solid rgba(37,99,235,0.12); border-left: 3px solid var(--accent);
+  box-shadow: 0 22px 55px rgba(0,0,0,0.38);
+}
+.exp-body .exp-co { border-bottom: 1px solid #e9edf3; padding-bottom: 14px; }
+.exp-body .exp-co h2, .exp-body .exp-role { color: #0f172a; }
+.exp-body .exp-meta { color: #64748b; }
+.exp-body .exp-desc { color: #475569; }
+.exp-body .exp-co img { border: 1px solid #e5e7eb; }
+.exp-body .exp-point h4 { color: #0f172a; }
+.exp-body .exp-point p { color: #64748b; }
+.exp-body .exp-point .pi { background: #eff6ff; }
+.exp-body .exp-label { color: #64748b; border-top: 1px solid #e9edf3; padding-top: 16px; margin-top: 4px; }
+.exp-body .tags span { background: #eff6ff; color: var(--accent); border-color: #bfdbfe; }
+.exp-body .exp-impact { color: #0f172a; border-left: 2px solid var(--accent); padding-left: 12px; }
 
 /* Project cards: cinematic light sweep on hover */
 .work-card::after {
