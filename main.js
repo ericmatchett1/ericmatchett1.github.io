@@ -31,7 +31,7 @@
       var max = h.scrollHeight - h.clientHeight;
       var p = max > 0 ? h.scrollTop / max : 0;
       if (bar) bar.style.width = (p * 100).toFixed(2) + "%";
-      if (nav) nav.style.boxShadow = window.scrollY > 8 ? "0 6px 20px rgba(15,23,42,.06)" : "none";
+      if (nav) nav.classList.toggle("scrolled", window.scrollY > 8);
     }
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
@@ -123,17 +123,23 @@
 
     if (reduce) return;
 
-    // ---- Mouse parallax on the AI pipeline ----
+    // ---- Depth-based mouse parallax (camera 5 / cube 10 / arm 15) ----
     var hero = document.querySelector(".ab-hero");
-    var stage = document.querySelector(".ab-stage");
-    if (hero && stage) {
+    var modules = [].slice.call(document.querySelectorAll(".ab-stage .ab-module"));
+    var depths = [5, 10, 15];
+    if (hero && modules.length) {
       hero.addEventListener("mousemove", function (ev) {
         var r = hero.getBoundingClientRect();
         var dx = (ev.clientX - r.left) / r.width - 0.5;
         var dy = (ev.clientY - r.top) / r.height - 0.5;
-        stage.style.transform = "translate(" + (dx * 14).toFixed(1) + "px," + (dy * 10).toFixed(1) + "px)";
+        modules.forEach(function (m, i) {
+          var d = depths[i] || 8;
+          m.style.transform = "translate(" + (dx * d).toFixed(1) + "px," + (dy * d * 0.7).toFixed(1) + "px)";
+        });
       });
-      hero.addEventListener("mouseleave", function () { stage.style.transform = "translate(0,0)"; });
+      hero.addEventListener("mouseleave", function () {
+        modules.forEach(function (m) { m.style.transform = "translate(0,0)"; });
+      });
     }
 
     // ---- Neural particle field ----

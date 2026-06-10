@@ -41,7 +41,23 @@
   position: relative; display: flex; align-items: center; justify-content: space-between;
   gap: 6px; will-change: transform;
 }
-.ab-module { text-align: center; flex: 0 0 auto; width: 120px; }
+.ab-module { text-align: center; flex: 0 0 auto; width: 120px; transition: transform .18s ease-out; }
+
+/* Hero text reveal on load (staggered fade-up) */
+@keyframes heroUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+.ab-hero-left > * { opacity: 0; animation: heroUp .7s ease forwards; }
+.ab-hero-left > *:nth-child(1) { animation-delay: .05s; }
+.ab-hero-left > *:nth-child(2) { animation-delay: .15s; }
+.ab-hero-left > *:nth-child(3) { animation-delay: .25s; }
+.ab-hero-left > *:nth-child(4) { animation-delay: .35s; }
+.ab-hero-left > *:nth-child(5) { animation-delay: .45s; }
+.ab-hero-left > *:nth-child(6) { animation-delay: .55s; }
+.ab-hero-left > *:nth-child(7) { animation-delay: .65s; }
+.ab-hero-right { animation: heroUp .8s ease .25s both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ab-hero-left > *, .ab-hero-right { opacity: 1; animation: none; }
+}
 .ab-module svg { width: 96px; height: 96px; display: block; margin: 0 auto 12px; overflow: visible; color: var(--accent); }
 .ab-arrow svg { color: var(--accent); }
 .ab-module .m-title { font-weight: 700; font-size: 0.86rem; }
