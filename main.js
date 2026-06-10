@@ -12,6 +12,11 @@
     // ---- Year ----
     document.querySelectorAll(".year").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
+    // ---- Back to top ----
+    document.querySelectorAll('a[href="#top"], .to-top').forEach(function (a) {
+      a.addEventListener("click", function (e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); });
+    });
+
     // ---- Theme toggle ----
     syncToggle();
     var tbtn = document.getElementById("themeToggle");
