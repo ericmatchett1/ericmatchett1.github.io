@@ -16,6 +16,12 @@
     document.querySelectorAll('a[href="#top"], .to-top').forEach(function (a) {
       a.addEventListener("click", function (e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); });
     });
+    var backTop = document.createElement("button");
+    backTop.className = "backtop";
+    backTop.setAttribute("aria-label", "Back to top");
+    backTop.innerHTML = "↑";
+    backTop.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
+    document.body.appendChild(backTop);
 
     // ---- Theme toggle ----
     syncToggle();
@@ -37,6 +43,7 @@
       var p = max > 0 ? h.scrollTop / max : 0;
       if (bar) bar.style.width = (p * 100).toFixed(2) + "%";
       if (nav) nav.classList.toggle("scrolled", window.scrollY > 8);
+      backTop.classList.toggle("show", window.scrollY > 400);
     }
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
