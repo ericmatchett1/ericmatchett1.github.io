@@ -4,7 +4,7 @@ Drop files here that the site references.
 
 | File | Used for |
 |------|----------|
-| `eric-matchett.pdf` | The **Download PDF** button on the Resume page (`resume.html`). Add your resume PDF here with this exact name. |
+| _(no resume PDF)_ | The résumé is rendered as on-page HTML at `/resume/`; downloading is intentionally disabled. |
 
 ## Videos
 The Videos page and home page stream demo clips directly from official
