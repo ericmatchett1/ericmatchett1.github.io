@@ -123,23 +123,52 @@
 
     if (reduce) return;
 
-    // ---- Depth-based mouse parallax (camera 5 / cube 10 / arm 15) ----
+    // ---- Hero pointer: depth parallax + arm tracking + cursor halo ----
     var hero = document.querySelector(".ab-hero");
     var modules = [].slice.call(document.querySelectorAll(".ab-stage .ab-module"));
+    var halo = document.querySelector(".cursor-halo");
     var depths = [5, 10, 15];
-    if (hero && modules.length) {
+    if (hero) {
       hero.addEventListener("mousemove", function (ev) {
         var r = hero.getBoundingClientRect();
         var dx = (ev.clientX - r.left) / r.width - 0.5;
         var dy = (ev.clientY - r.top) / r.height - 0.5;
         modules.forEach(function (m, i) {
           var d = depths[i] || 8;
-          m.style.transform = "translate(" + (dx * d).toFixed(1) + "px," + (dy * d * 0.7).toFixed(1) + "px)";
+          var t = "translate(" + (dx * d).toFixed(1) + "px," + (dy * d * 0.7).toFixed(1) + "px)";
+          if (i === 2) t += " rotate(" + (dx * 6).toFixed(1) + "deg)";   // robot arm tracks the mouse
+          m.style.transform = t;
         });
+        if (halo) {
+          halo.style.left = (ev.clientX - r.left) + "px";
+          halo.style.top = (ev.clientY - r.top) + "px";
+          halo.style.opacity = "1";
+        }
       });
       hero.addEventListener("mouseleave", function () {
         modules.forEach(function (m) { m.style.transform = "translate(0,0)"; });
+        if (halo) halo.style.opacity = "0";
       });
+    }
+
+    // ---- Magnetic hero buttons ----
+    document.querySelectorAll(".hero-btns .btn").forEach(function (btn) {
+      btn.addEventListener("mousemove", function (e) {
+        var r = btn.getBoundingClientRect();
+        var mx = e.clientX - (r.left + r.width / 2);
+        var my = e.clientY - (r.top + r.height / 2);
+        btn.style.transform = "translate(" + (mx * 0.25).toFixed(1) + "px," + (my * 0.35).toFixed(1) + "px)";
+      });
+      btn.addEventListener("mouseleave", function () { btn.style.transform = ""; });
+    });
+
+    // ---- AI status panel: ticking metrics ----
+    var ops = document.getElementById("aisOps"), lat = document.getElementById("aisLat");
+    if (ops && lat) {
+      setInterval(function () {
+        ops.textContent = 240 + Math.floor(Math.random() * 18);
+        lat.textContent = 12 + Math.floor(Math.random() * 6);
+      }, 2500);
     }
 
     // ---- Neural particle field ----

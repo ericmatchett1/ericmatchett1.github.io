@@ -66,6 +66,36 @@
 .cam-beam { animation: camBeam 6.5s ease-in-out infinite; }
 @keyframes camBeam { 0%,66%,100% { opacity: 0; } 74% { opacity: .5; } 84% { opacity: .15; } }
 
+/* Cursor halo (hero) */
+.cursor-halo {
+  position: absolute; left: -9999px; top: 0; width: 180px; height: 180px; border-radius: 50%;
+  transform: translate(-50%, -50%); pointer-events: none; z-index: 1; opacity: 0;
+  background: radial-gradient(circle, rgba(37,99,235,0.13), transparent 70%);
+  transition: opacity .3s ease;
+}
+
+/* Feedback loop (arm -> camera) */
+.feedback-loop { position: absolute; left: 0; right: 0; top: -16px; width: 100%; height: 40px; z-index: 0; pointer-events: none; }
+.fb-dot { offset-path: path("M450 30 C 360 2, 100 2, 10 30"); animation: fbFlow 6.5s ease-in-out infinite; }
+@keyframes fbFlow { 0%,50% { offset-distance: 0%; opacity: 0; } 56% { opacity: 1; } 94% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
+
+/* AI status panel */
+.ai-status { margin: 22px 0 0 auto; max-width: 280px; border: 1px solid var(--line); border-radius: 14px; background: var(--card-bg); padding: 14px 16px; font-size: .8rem; position: relative; z-index: 2; }
+.ais-head { font-size: .68rem; letter-spacing: .14em; color: var(--muted); font-weight: 700; margin-bottom: 10px; }
+.ais-rows { list-style: none; margin: 0 0 10px; padding: 0; }
+.ais-rows li { display: flex; align-items: center; gap: 8px; padding: 3px 0; }
+.ais-rows .led { width: 8px; height: 8px; border-radius: 50%; background: #34d399; box-shadow: 0 0 6px #34d399; animation: ledBlink 2.4s ease-in-out infinite; }
+.ais-rows li:nth-child(2) .led { animation-delay: .5s; }
+.ais-rows li:nth-child(3) .led { animation-delay: 1s; }
+.ais-rows li:nth-child(4) .led { animation-delay: 1.5s; }
+.ais-rows .st { margin-left: auto; color: var(--accent); font-weight: 600; }
+@keyframes ledBlink { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+.ais-metrics { display: flex; justify-content: space-between; gap: 10px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px; }
+.ais-metrics b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.ais-graph { width: 100%; height: 28px; margin-top: 8px; }
+.ais-graph polyline { fill: none; stroke: var(--accent); stroke-width: 1.5; stroke-dasharray: 120; animation: graphMove 4s linear infinite; }
+@keyframes graphMove { from { stroke-dashoffset: 240; } to { stroke-dashoffset: 0; } }
+
 /* Hero text reveal on load (staggered fade-up) */
 @keyframes heroUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
 .ab-hero-left > * { opacity: 0; animation: heroUp .7s ease forwards; }
@@ -192,7 +222,7 @@
 @media (prefers-reduced-motion: reduce) {
   .cube-body, .cam-lens, .cam-flash, .node-blink, .arm-wrist, .arm-claw-a, .arm-claw-b,
   .flow-dot, .journey-node, .flag-wave, .ab-plane svg,
-  .pipe-sweep, .cam-beam, .ab-hero-grid,
+  .pipe-sweep, .cam-beam, .ab-hero-grid, .fb-dot, .ais-rows .led, .ais-graph polyline,
   .ab-stage .ab-module:nth-child(3)::before { animation: none !important; }
   .journey-line { stroke-dashoffset: 0 !important; }
   .ab-card { opacity: 1; transform: none; }
