@@ -671,3 +671,74 @@ section[id] { scroll-margin-top: 80px; }
 .work-card:hover::after { opacity: 1; animation: cardSweep .8s ease; }
 @keyframes cardSweep { from { left: -60%; } to { left: 130%; } }
 @media (prefers-reduced-motion: reduce) { .work-card:hover::after { animation: none; opacity: 0; } }
+
+/* ============ Experience — cinematic upgrade ============ */
+.exp-section { transition: opacity .6s ease, filter .6s ease; }
+.exp-section:not(.exp-active) { opacity: .5; filter: blur(1.4px); }
+
+.exp-scene { transition: opacity .6s ease, transform .3s ease; }
+.exp-scene .scene-photo { transition: transform 7s ease; }
+.exp-active .scene-photo { transform: scale(1.07); }
+
+.scene-scan { position: absolute; left: 0; right: 0; top: 0; height: 36%; z-index: 3; pointer-events: none; opacity: 0;
+  background: linear-gradient(180deg, rgba(91,140,255,0), rgba(91,140,255,.22), rgba(91,140,255,0)); }
+.exp-active .scene-scan { opacity: 1; animation: sceneScan 6.5s ease-in-out infinite; }
+@keyframes sceneScan { 0% { transform: translateY(-60%); } 50% { transform: translateY(230%); } 100% { transform: translateY(-60%); } }
+
+.exp-scene .scene-chip { opacity: 0; transform: translateY(8px); transition: opacity .5s ease, transform .5s ease; }
+.exp-active .scene-chip { opacity: 1; transform: none; }
+.exp-active .scene-chip:nth-of-type(2) { transition-delay: .25s; }
+
+.exp-rail-fill { position: absolute; left: 16px; top: 12px; width: 2px; height: 0; background: var(--accent); box-shadow: 0 0 8px rgba(37,99,235,.7); transition: height .5s ease; }
+
+.exp-points .exp-point { opacity: 0; transform: translateY(12px); }
+.exp-body.in .exp-points .exp-point { animation: expFadeUp .5s ease forwards; }
+.exp-body.in .exp-points .exp-point:nth-child(1) { animation-delay: .05s; }
+.exp-body.in .exp-points .exp-point:nth-child(2) { animation-delay: .16s; }
+.exp-body.in .exp-points .exp-point:nth-child(3) { animation-delay: .27s; }
+@keyframes expFadeUp { to { opacity: 1; transform: none; } }
+
+.exp-body .tags span { opacity: 0; transform: translateY(6px); transition: color .2s ease, border-color .2s ease, box-shadow .2s ease; }
+.exp-body.in .tags span { animation: expFadeUp .4s ease forwards; }
+.exp-body.in .tags span:nth-child(1) { animation-delay: .34s; }
+.exp-body.in .tags span:nth-child(2) { animation-delay: .40s; }
+.exp-body.in .tags span:nth-child(3) { animation-delay: .46s; }
+.exp-body.in .tags span:nth-child(4) { animation-delay: .52s; }
+.exp-body.in .tags span:nth-child(5) { animation-delay: .58s; }
+.exp-body.in .tags span:nth-child(6) { animation-delay: .64s; }
+.exp-body .tags span:hover { color: var(--accent); border-color: var(--accent); box-shadow: 0 0 10px rgba(37,99,235,.35); }
+
+.exp-body .exp-impact { position: relative; border-left: none; padding-left: 14px; }
+.exp-body .exp-impact::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--accent); transform: scaleY(0); transform-origin: top; }
+.exp-body.in .exp-impact::before { animation: expDraw .6s ease .55s forwards; }
+@keyframes expDraw { to { transform: scaleY(1); } }
+
+.exp-body .exp-co img { transform: scale(.95); transition: transform .5s ease; }
+.exp-body.in .exp-co img { transform: scale(1); }
+
+.exp-path span, .exp-path i { opacity: 0; transform: translateY(8px); }
+.exp-end.in .exp-path > * { animation: expFadeUp .45s ease forwards; }
+.exp-end.in .exp-path > :nth-child(1) { animation-delay: .05s; }
+.exp-end.in .exp-path > :nth-child(2) { animation-delay: .13s; }
+.exp-end.in .exp-path > :nth-child(3) { animation-delay: .21s; }
+.exp-end.in .exp-path > :nth-child(4) { animation-delay: .29s; }
+.exp-end.in .exp-path > :nth-child(5) { animation-delay: .37s; }
+.exp-end.in .exp-path > :nth-child(6) { animation-delay: .45s; }
+.exp-end.in .exp-path > :nth-child(7) { animation-delay: .53s; }
+.exp-end.in .exp-path > :nth-child(8) { animation-delay: .61s; }
+.exp-end.in .exp-path > :nth-child(9) { animation-delay: .69s; }
+.exp-end.in .exp-path > :nth-child(10) { animation-delay: .77s; }
+.exp-end.in .exp-path > :nth-child(11) { animation-delay: .85s; }
+
+@media (max-width: 860px) {
+  .exp-section:not(.exp-active) { opacity: 1; filter: none; }
+  .scene-scan { display: none; }
+  .exp-active .scene-photo { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .exp-section:not(.exp-active) { opacity: 1; filter: none; }
+  .exp-active .scene-photo, .scene-scan, .exp-active .scene-chip { animation: none !important; transform: none !important; }
+  .exp-scene .scene-chip { opacity: 1; transform: none; }
+  .exp-points .exp-point, .exp-body .tags span, .exp-path span, .exp-path i { opacity: 1; transform: none; animation: none; }
+  .exp-body .exp-impact::before { transform: scaleY(1); }
+}

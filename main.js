@@ -89,7 +89,7 @@
         if (e.isIntersecting) { e.target.classList.add("in"); revObs.unobserve(e.target); }
       });
     }, { threshold: 0.15 });
-    document.querySelectorAll(".reveal, .ab-card, .htimeline, .exp-scene, .edu-timeline").forEach(function (el) { revObs.observe(el); });
+    document.querySelectorAll(".reveal, .ab-card, .htimeline, .exp-scene, .edu-timeline, .exp-end").forEach(function (el) { revObs.observe(el); });
 
     // ---- Count-up ----
     function fmt(n) { return n.toLocaleString("en-US"); }
@@ -133,20 +133,48 @@
       });
     });
 
-    // ---- Experience: progress-rail active state ----
+    // ---- Experience: cinematic active-section + rail + tilt ----
     var expSections = [].slice.call(document.querySelectorAll(".exp-section"));
     if (expSections.length) {
-      var railLinks = {};
-      document.querySelectorAll(".exp-rail a").forEach(function (a) { railLinks[a.getAttribute("href").slice(1)] = a; });
+      var railEl = document.querySelector(".exp-rail");
+      var railLinks = {}, railOrder = [];
+      document.querySelectorAll(".exp-rail a").forEach(function (a) {
+        var id = a.getAttribute("href").slice(1); railLinks[id] = a; railOrder.push(id);
+      });
+      var railFill = null;
+      if (railEl) { railFill = document.createElement("div"); railFill.className = "exp-rail-fill"; railEl.appendChild(railFill); }
+      document.querySelectorAll(".exp-scene").forEach(function (sc) {
+        var sn = document.createElement("div"); sn.className = "scene-scan"; sc.insertBefore(sn, sc.firstChild);
+      });
+      expSections[0].classList.add("exp-active");
+
       var expObs = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
-          if (e.isIntersecting && railLinks[e.target.id]) {
-            for (var k in railLinks) railLinks[k].classList.remove("active");
-            railLinks[e.target.id].classList.add("active");
+          if (!e.isIntersecting) return;
+          expSections.forEach(function (s) { s.classList.toggle("exp-active", s === e.target); });
+          var id = e.target.id;
+          for (var k in railLinks) railLinks[k].classList.remove("active");
+          if (railLinks[id]) railLinks[id].classList.add("active");
+          if (railFill && railEl) {
+            var idx = railOrder.indexOf(id);
+            railFill.style.height = (((idx + 1) / railOrder.length) * (railEl.offsetHeight - 42)) + "px";
           }
         });
       }, { rootMargin: "-45% 0px -50% 0px" });
       expSections.forEach(function (s) { expObs.observe(s); });
+
+      if (!reduce) {
+        document.querySelectorAll(".exp-scene").forEach(function (scene) {
+          var media = scene.closest(".exp-media") || scene;
+          media.addEventListener("mousemove", function (ev) {
+            var r = scene.getBoundingClientRect();
+            var rx = ((ev.clientY - r.top) / r.height - 0.5) * -5;
+            var ry = ((ev.clientX - r.left) / r.width - 0.5) * 6;
+            scene.style.transform = "perspective(900px) rotateX(" + rx.toFixed(2) + "deg) rotateY(" + ry.toFixed(2) + "deg)";
+          });
+          media.addEventListener("mouseleave", function () { scene.style.transform = ""; });
+        });
+      }
     }
 
     if (reduce) return;
