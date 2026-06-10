@@ -28,87 +28,211 @@
     </div>
   </header>
 
+  <!-- Progress rail -->
+  <nav class="exp-rail" aria-label="Career progress">
+    <a href="#exp-1"><span class="dot"></span><span class="lbl">Google X</span></a>
+    <a href="#exp-2"><span class="dot"></span><span class="lbl">Waymo</span></a>
+    <a href="#exp-3"><span class="dot"></span><span class="lbl">Mineral AI</span></a>
+    <a href="#exp-4"><span class="dot"></span><span class="lbl">Everyday Robots</span></a>
+    <a href="#exp-5"><span class="dot"></span><span class="lbl">Google</span></a>
+    <a href="#exp-6"><span class="dot"></span><span class="lbl">Carnegie Mellon</span></a>
+  </nav>
+
   <main class="wrap">
-    <section class="page-hero">
+    <section class="exp-hero">
       <h1>Experience</h1>
-      <p>A journey through AI, robotics, and software engineering.</p>
+      <p>A journey building AI systems that perceive, reason, and act in the physical world.</p>
+      <p class="exp-scrollhint"><span>↓ Scroll to explore my journey ↓</span></p>
     </section>
 
-    <section class="sec" style="border-top:none;padding-top:10px">
-      <ol class="xptl">
-        <li class="xp reveal">
-          <div class="xp-date">2024.08 – Present</div>
-          <div class="xp-card">
-            <div class="xp-head"><span class="xp-logo"><img src="https://www.google.com/s2/favicons?sz=128&amp;domain=google.com" alt="Google X" loading="lazy" /></span><div><h3>Senior Staff Machine Learning Engineer — AI</h3><p class="xp-org">Google X</p></div></div>
-            <ul class="xp-bullets">
-              <li>Lead computer vision &amp; multimodal AI for the Tapestry Grid Intelligence Platform.</li>
-              <li>Apply foundation models and graph neural networks to satellite imagery and telemetry.</li>
-              <li>Head cross-functional teams building large-scale production ML systems for utilities.</li>
-            </ul>
-            <div class="tags"><span>PyTorch</span><span>JAX</span><span>Computer Vision</span><span>GNNs</span></div>
+    <!-- 01 Google X -->
+    <section class="exp-section" id="exp-1">
+      <div class="exp-grid">
+        <div class="exp-media">
+          <div class="exp-scene">
+            <img class="scene-photo" src="/assets/exp/google-x.jpg" alt="Google X" onerror="this.remove()" />
+            <div class="scene-logo"><img src="https://www.google.com/s2/favicons?sz=64&amp;domain=google.com" alt="" /> Google X</div>
+            <div class="scene-core"><svg viewBox="0 0 24 24"><path d="M12 2v6M12 22v-6M4.2 6l4.3 2.5M19.8 18l-4.3-2.5M19.8 6l-4.3 2.5M4.2 18l4.3-2.5"/><circle cx="12" cy="12" r="3.2"/><path d="m13 9 4-2M11 15l-4 2"/></svg></div>
+            <div class="scene-chip" style="left:18px;bottom:18px"><b>DATA SOURCES</b>Satellite · Telemetry · Grid</div>
+            <div class="scene-chip" style="right:18px;bottom:62px"><b>AI MODELS</b>GNNs + Foundation Models</div>
           </div>
-        </li>
-        <li class="xp reveal">
-          <div class="xp-date">2023.10 – 2024.07</div>
-          <div class="xp-card">
-            <div class="xp-head"><span class="xp-logo"><img src="https://www.google.com/s2/favicons?sz=128&amp;domain=waymo.com" alt="Waymo" loading="lazy" /></span><div><h3>Tech Lead, Staff Software Engineer — AI/ML</h3><p class="xp-org">Waymo</p></div></div>
-            <ul class="xp-bullets">
-              <li>Built multimodal AI and sensor-fusion models for perception and scene understanding.</li>
-              <li>Improved behavior prediction and decision-making for the Waymo Driver.</li>
-              <li>Developed distributed training and simulation pipelines to scale ride-hailing.</li>
-            </ul>
-            <div class="tags"><span>C++</span><span>TensorFlow</span><span>Sensor Fusion</span><span>AV</span></div>
+        </div>
+        <div class="exp-body reveal">
+          <div class="exp-num">01</div>
+          <div class="exp-co"><img src="https://www.google.com/s2/favicons?sz=64&amp;domain=google.com" alt="" /><h2>Google X</h2></div>
+          <span class="exp-badge">Current</span>
+          <p class="exp-role">Senior Staff Machine Learning Engineer — AI</p>
+          <p class="exp-meta">Mountain View, CA · 2024 – Present</p>
+          <p class="exp-desc">Leading multimodal AI and computer vision research for the <a href="https://x.company/projects/tapestry/" target="_blank" rel="noopener">Tapestry Grid Intelligence Platform</a> — unifying geospatial imagery, infrastructure data, and operational telemetry to optimize the future of power grids.</p>
+          <div class="exp-points">
+            <div class="exp-point"><span class="pi"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg></span><div><h4>Grid Modeling</h4><p>Built AI models that create a unified, high-fidelity view of grid assets and operations.</p></div></div>
+            <div class="exp-point"><span class="pi"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><div><h4>Power Optimization</h4><p>Developed models that predict grid behavior and optimize power flow in real time.</p></div></div>
+            <div class="exp-point"><span class="pi"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span><div><h4>Asset Intelligence</h4><p>Applied computer vision to satellite imagery for asset detection and risk assessment.</p></div></div>
           </div>
-        </li>
-        <li class="xp reveal">
-          <div class="xp-date">2023.01 – 2023.09</div>
-          <div class="xp-card">
-            <div class="xp-head"><span class="xp-logo"><img src="https://www.google.com/s2/favicons?sz=128&amp;domain=mineral.ai" alt="Mineral.AI" loading="lazy" /></span><div><h3>Research Data Scientist</h3><p class="xp-org">Mineral.AI</p></div></div>
-            <ul class="xp-bullets">
-              <li>Built crop intelligence combining computer vision, remote sensing, and sensor data.</li>
-              <li>Developed segmentation, detection, and geospatial analytics on satellite/drone imagery.</li>
-              <li>Turned massive imagery datasets into actionable field-level insights.</li>
-            </ul>
-            <div class="tags"><span>Computer Vision</span><span>Remote Sensing</span><span>Geospatial</span></div>
+          <p class="exp-label">TECH STACK</p>
+          <div class="tags"><span>Python</span><span>PyTorch</span><span>JAX</span><span>TensorFlow</span><span>GNNs</span><span>BigQuery</span></div>
+          <p class="exp-impact" style="margin-top:14px"><b>Impact:</b> Improving grid visibility, resilience, and operational efficiency for millions.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Waymo -->
+    <section class="exp-section" id="exp-2">
+      <div class="exp-grid">
+        <div class="exp-media">
+          <div class="exp-scene">
+            <img class="scene-photo" src="/assets/exp/waymo.jpg" alt="Waymo" onerror="this.remove()" />
+            <div class="scene-logo"><img src="https://www.google.com/s2/favicons?sz=64&amp;domain=waymo.com" alt="" /> Waymo</div>
+            <div class="scene-core"><svg viewBox="0 0 24 24"><path d="M5 16l1.6-5.3A2 2 0 0 1 8.5 9.3h7a2 2 0 0 1 1.9 1.4L19 16M4 16h16v3H4zM7 19v2M17 19v2"/><circle cx="8" cy="16" r="0.5"/><circle cx="16" cy="16" r="0.5"/></svg></div>
+            <div class="scene-chip" style="left:18px;top:54px"><b>LIDAR POINT CLOUD</b>360° perception</div>
+            <div class="scene-chip" style="right:18px;bottom:18px"><b>PREDICTION</b>Behavior · Trajectories</div>
           </div>
-        </li>
-        <li class="xp reveal">
-          <div class="xp-date">2019.11 – 2022.12</div>
-          <div class="xp-card">
-            <div class="xp-head"><span class="xp-logo"><img src="https://www.google.com/s2/favicons?sz=128&amp;domain=everydayrobots.com" alt="Everyday Robots" loading="lazy" /></span><div><h3>Staff Research Scientist — ML</h3><p class="xp-org">Everyday Robots</p></div></div>
-            <ul class="xp-bullets">
-              <li>Co-led SayCan — LLMs for robot planning from natural-language instructions.</li>
-              <li>Contributed to RT-2 and PaLM-E, combining VLMs and LLMs for action.</li>
-              <li>Researched semantic planning in complex, unstructured environments.</li>
-            </ul>
-            <div class="tags"><span>LLMs</span><span>VLMs</span><span>Robotics</span><span>Planning</span></div>
+        </div>
+        <div class="exp-body reveal">
+          <div class="exp-num">02</div>
+          <div class="exp-co"><img src="https://www.google.com/s2/favicons?sz=64&amp;domain=waymo.com" alt="" /><h2>Waymo</h2></div>
+          <p class="exp-role">Tech Lead, Staff Software Engineer — AI/ML</p>
+          <p class="exp-meta">San Francisco, CA · 2023 – 2024 &nbsp;·&nbsp; Perception lead, Phoenix 2016 – 2019</p>
+          <p class="exp-desc">Led cross-functional teams to build the perception, prediction, and decision-making systems powering the <a href="https://waymo.com/" target="_blank" rel="noopener">Waymo Driver</a> across complex real-world environments.</p>
+          <div class="exp-points">
+            <div class="exp-point"><span class="pi"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span><div><h4>Perception</h4><p>Built multimodal perception models for 360° understanding using LiDAR, camera, and radar.</p></div></div>
+            <div class="exp-point"><span class="pi"><svg viewBox="0 0 24 24"><path d="M4 18 9 11l4 4 7-9"/><path d="M16 6h4v4"/></svg></span><div><h4>Prediction</h4><p>Developed behavior prediction models to anticipate the movement of road users.</p></div></div>
+            <div class="exp-point"><span class="pi"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="2"/></svg></span><div><h4>Decision Making</h4><p>Designed decision-making systems that enable safe and natural autonomous driving.</p></div></div>
           </div>
-        </li>
-        <li class="xp reveal">
-          <div class="xp-date">2016.12 – 2019.11</div>
-          <div class="xp-card">
-            <div class="xp-head"><span class="xp-logo"><img src="https://www.google.com/s2/favicons?sz=128&amp;domain=waymo.com" alt="Waymo" loading="lazy" /></span><div><h3>Staff Software Engineer — ML</h3><p class="xp-org">Waymo</p></div></div>
-            <ul class="xp-bullets">
-              <li>Led the Waymo Perception System; improved detection and cut false positives.</li>
-              <li>Built the LiDAR/radar/camera sensor-fusion layer.</li>
-              <li>Developed localization &amp; mapping with centimeter-level positioning.</li>
-            </ul>
-            <div class="tags"><span>C++</span><span>Python</span><span>Perception</span><span>SLAM</span></div>
+          <p class="exp-label">TECH STACK</p>
+          <div class="tags"><span>Python</span><span>C++</span><span>TensorFlow</span><span>PyTorch</span><span>JAX</span><span>Ray</span></div>
+          <p class="exp-impact" style="margin-top:14px"><b>Impact:</b> Safer autonomous driving across billions of real-world miles.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Mineral AI -->
+    <section class="exp-section" id="exp-3">
+      <div class="exp-grid">
+        <div class="exp-media">
+          <div class="exp-scene">
+            <img class="scene-photo" src="/assets/exp/mineral-ai.jpg" alt="Mineral AI" onerror="this.remove()" />
+            <div class="scene-logo"><img src="https://www.google.com/s2/favicons?sz=64&amp;domain=mineral.ai" alt="" /> Mineral AI</div>
+            <div class="scene-core"><svg viewBox="0 0 24 24"><path d="M12 21c0-7 3-12 9-13-1 8-4 11-9 13Z"/><path d="M12 21c0-6-2-9-7-10 1 6 3 8 7 10Z"/><path d="M12 21v-7"/></svg></div>
+            <div class="scene-chip" style="left:18px;bottom:18px"><b>CROP SEGMENTATION</b>Satellite · Drone imagery</div>
           </div>
-        </li>
-        <li class="xp reveal">
-          <div class="xp-date">2010.01 – 2016.01</div>
-          <div class="xp-card">
-            <div class="xp-head"><span class="xp-logo"><img src="https://www.google.com/s2/favicons?sz=128&amp;domain=google.com" alt="Google" loading="lazy" /></span><div><h3>Software Engineer → Senior SWE</h3><p class="xp-org">Google / Google X</p></div></div>
-            <ul class="xp-bullets">
-              <li>Built large-scale Street View backend and data-processing systems.</li>
-              <li>Improved panorama localization accuracy and global map generation.</li>
-              <li>Moved to self-driving cars — perception &amp; localization with camera/LiDAR/radar/GPS/IMU.</li>
-            </ul>
-            <div class="tags"><span>C++</span><span>Python</span><span>Localization</span><span>Mapping</span></div>
+        </div>
+        <div class="exp-body reveal">
+          <div class="exp-num">03</div>
+          <div class="exp-co"><img src="https://www.google.com/s2/favicons?sz=64&amp;domain=mineral.ai" alt="" /><h2>Mineral AI</h2></div>
+          <p class="exp-role">Research Data Scientist</p>
+          <p class="exp-meta">Mountain View, CA · 2023</p>
+          <p class="exp-desc">Built AI-powered crop intelligence systems combining computer vision, remote sensing, and field-sensor data to deliver actionable insights for modern agriculture.</p>
+          <div class="exp-points">
+            <div class="exp-point"><span class="pi"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span><div><h4>Crop Analysis</h4><p>Image segmentation and object detection across satellite and drone imagery.</p></div></div>
+            <div class="exp-point"><span class="pi"><svg viewBox="0 0 24 24"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></svg></span><div><h4>Geospatial Analytics</h4><p>Turned massive imagery datasets into field-level decision support.</p></div></div>
+            <div class="exp-point"><span class="pi"><svg viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><div><h4>Scalable Pipelines</h4><p>Improved accuracy and scale of automated crop-analysis workflows.</p></div></div>
           </div>
-        </li>
-      </ol>
+          <p class="exp-label">TECH STACK</p>
+          <div class="tags"><span>Python</span><span>TensorFlow</span><span>PyTorch</span><span>Remote Sensing</span><span>Geospatial</span></div>
+          <p class="exp-impact" style="margin-top:14px"><b>Impact:</b> Replaced slow manual inspections with large-scale automated crop intelligence.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 Everyday Robots -->
+    <section class="exp-section" id="exp-4">
+      <div class="exp-grid">
+        <div class="exp-media">
+          <div class="exp-scene">
+            <img class="scene-photo" src="/assets/exp/everyday-robots.jpg" alt="Everyday Robots" onerror="this.remove()" />
+            <div class="scene-logo"><img src="https://www.google.com/s2/favicons?sz=64&amp;domain=everydayrobots.com" alt="" /> Everyday Robots</div>
+            <div class="scene-core"><svg viewBox="0 0 24 24"><rect x="5" y="7" width="14" height="11" rx="2"/><path d="M9 7V4h6v3M2 12v3M22 12v3M9 12h0M15 12h0"/></svg></div>
+            <div class="scene-chip" style="left:18px;bottom:18px"><b>REASONING LOOP</b>Observe → Think → Plan → Act</div>
+          </div>
+        </div>
+        <div class="exp-body reveal">
+          <div class="exp-num">04</div>
+          <div class="exp-co"><img src="https://www.google.com/s2/favicons?sz=64&amp;domain=everydayrobots.com" alt="" /><h2>Everyday Robots</h2></div>
+          <p class="exp-role">Staff Research Scientist — ML</p>
+          <p class="exp-meta">Mountain View, CA · 2019 – 2022</p>
+          <p class="exp-desc">Pioneered robot semantic planning in complex, unstructured environments — co-leading <a href="https://say-can.github.io/" target="_blank" rel="noopener">SayCan</a> and contributing to <a href="https://robotics-transformer2.github.io/" target="_blank" rel="noopener">RT-2</a> and <a href="https://palm-e.github.io/" target="_blank" rel="noopener">PaLM-E</a>.</p>
+          <div class="exp-points">
+            <div class="exp-point"><span class="pi"><svg viewBox="0 0 24 24"><path d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-4 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/></svg></span><div><h4>Robot Planning with LLMs</h4><p>Grounded language in robotic affordances for natural-language task execution.</p></div></div>
+            <div class="exp-point"><span class="pi"><svg viewBox="0 0 24 24"><path d="M12 3a5 5 0 0 0-5 5c0 1.6.7 2.7 1.5 3.6.6.7 1 1.3 1 2.4v1h5v-1c0-1.1.4-1.7 1-2.4C17.3 10.7 18 9.6 18 8a5 5 0 0 0-6-5Z"/></svg></span><div><h4>Embodied Multimodal AI</h4><p>Combined vision-language models and LLMs for scene understanding and action.</p></div></div>
+            <div class="exp-point"><span class="pi"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></span><div><h4>Closed-Loop Reasoning</h4><p>Inner Monologue: reasoning from environment feedback during execution.</p></div></div>
+          </div>
+          <p class="exp-label">TECH STACK</p>
+          <div class="tags"><span>Python</span><span>TensorFlow</span><span>PyTorch</span><span>LLMs</span><span>VLMs</span></div>
+          <p class="exp-impact" style="margin-top:14px"><b>Impact:</b> SayCan reported by 260+ outlets — TechCrunch, WIRED, Reuters, The Washington Post.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 Google / Street View -->
+    <section class="exp-section" id="exp-5">
+      <div class="exp-grid">
+        <div class="exp-media">
+          <div class="exp-scene">
+            <img class="scene-photo" src="/assets/exp/google-streetview.jpg" alt="Google Street View" onerror="this.remove()" />
+            <div class="scene-logo"><img src="https://www.google.com/s2/favicons?sz=64&amp;domain=google.com" alt="" /> Google</div>
+            <div class="scene-core"><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="8"/><path d="M4 10h16M12 2c3 2.5 3 13 0 16-3-3-3-13.5 0-16Z"/><path d="M12 18v4"/></svg></div>
+            <div class="scene-chip" style="left:18px;bottom:18px"><b>STREET VIEW</b>Panorama localization at scale</div>
+          </div>
+        </div>
+        <div class="exp-body reveal">
+          <div class="exp-num">05</div>
+          <div class="exp-co"><img src="https://www.google.com/s2/favicons?sz=64&amp;domain=google.com" alt="" /><h2>Google</h2></div>
+          <p class="exp-role">Software Engineer — Street View → Senior SWE, Self-Driving</p>
+          <p class="exp-meta">Mountain View, CA · 2010 – 2013 &nbsp;·&nbsp; Self-Driving Cars 2015 – 2016</p>
+          <p class="exp-desc">Built large-scale backend and data-processing systems for Google Street View, then perception &amp; localization for the Google Self-Driving Car Project.</p>
+          <div class="exp-points">
+            <div class="exp-point"><span class="pi"><svg viewBox="0 0 24 24"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></span><div><h4>Panorama Localization</h4><p>Fused imagery, GPS, and sensor data to improve global map generation.</p></div></div>
+            <div class="exp-point"><span class="pi"><svg viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><div><h4>Large-Scale Systems</h4><p>Backend and data pipelines processing planet-scale imagery.</p></div></div>
+            <div class="exp-point"><span class="pi"><svg viewBox="0 0 24 24"><path d="M5 16l1.6-5.3A2 2 0 0 1 8.5 9.3h7a2 2 0 0 1 1.9 1.4L19 16M4 16h16v3H4z"/></svg></span><div><h4>Self-Driving Perception</h4><p>Sensor fusion of camera, LiDAR, radar, GPS, and IMU for real-time positioning.</p></div></div>
+          </div>
+          <p class="exp-label">TECH STACK</p>
+          <div class="tags"><span>C++</span><span>Python</span><span>Localization</span><span>HD Mapping</span></div>
+          <p class="exp-impact" style="margin-top:14px"><b>Impact:</b> Foundational perception and mapping behind global map products.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 Carnegie Mellon -->
+    <section class="exp-section" id="exp-6">
+      <div class="exp-grid">
+        <div class="exp-media">
+          <div class="exp-scene">
+            <img class="scene-photo" src="/assets/exp/cmu.jpg" alt="Carnegie Mellon University" onerror="this.remove()" />
+            <div class="scene-logo"><img src="https://www.google.com/s2/favicons?sz=64&amp;domain=cmu.edu" alt="" /> Carnegie Mellon</div>
+            <div class="scene-core"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><circle cx="5" cy="6" r="1.4"/><circle cx="19" cy="6" r="1.4"/><circle cx="5" cy="18" r="1.4"/><circle cx="19" cy="18" r="1.4"/><path d="M6.2 6.8 10.5 11M17.8 6.8 13.5 11M6.2 17.2 10.5 13M17.8 17.2 13.5 13"/></svg></div>
+            <div class="scene-chip" style="left:18px;bottom:18px"><b>RESEARCH</b>Perception · SLAM · Sensor Fusion</div>
+          </div>
+        </div>
+        <div class="exp-body reveal">
+          <div class="exp-num">06</div>
+          <div class="exp-co"><img src="https://www.google.com/s2/favicons?sz=64&amp;domain=cmu.edu" alt="" /><h2>Carnegie Mellon University</h2></div>
+          <p class="exp-role">Research Assistant — Computer Vision &amp; Robotics</p>
+          <p class="exp-meta">Pittsburgh, PA · 2013 – 2015</p>
+          <p class="exp-desc">Conducted research in computer vision, machine learning, and autonomous systems, developing perception, localization, and sensor-fusion algorithms for robotics and self-driving vehicles.</p>
+          <div class="exp-points">
+            <div class="exp-point"><span class="pi"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.6 7.8 11 15M16.4 7.8 13 15M8 6h8"/></svg></span><div><h4>Perception &amp; SLAM</h4><p>Point-cloud reconstruction and localization for robotics.</p></div></div>
+            <div class="exp-point"><span class="pi"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span><div><h4>Computer Vision</h4><p>Detection, tracking, and 3D vision for autonomous applications.</p></div></div>
+            <div class="exp-point"><span class="pi"><svg viewBox="0 0 24 24"><path d="M12 3a5 5 0 0 0-5 5c0 1.6.7 2.7 1.5 3.6.6.7 1 1.3 1 2.4v1h5v-1c0-1.1.4-1.7 1-2.4C17.3 10.7 18 9.6 18 8a5 5 0 0 0-6-5Z"/></svg></span><div><h4>Foundations</h4><p>The research roots behind a career in real-world AI.</p></div></div>
+          </div>
+          <p class="exp-label">TECH STACK</p>
+          <div class="tags"><span>C++</span><span>Python</span><span>MATLAB</span><span>OpenCV</span></div>
+          <p class="exp-impact" style="margin-top:14px"><b>Impact:</b> Research foundations in perception that shaped everything since.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- End of journey -->
+    <section class="exp-end">
+      <h2>15+ Years of Building AI Systems</h2>
+      <div class="exp-path">
+        <span>Computer Vision Research</span><i>→</i>
+        <span>Autonomous Driving</span><i>→</i>
+        <span>Robotics</span><i>→</i>
+        <span>Multimodal Foundation Models</span><i>→</i>
+        <span>AI for Critical Infrastructure</span>
+      </div>
+      <a class="btn btn-primary" href="/resume/">⬇ Download Resume</a>
     </section>
   </main>
 

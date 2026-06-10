@@ -77,7 +77,7 @@
         if (e.isIntersecting) { e.target.classList.add("in"); revObs.unobserve(e.target); }
       });
     }, { threshold: 0.15 });
-    document.querySelectorAll(".reveal, .ab-card, .htimeline").forEach(function (el) { revObs.observe(el); });
+    document.querySelectorAll(".reveal, .ab-card, .htimeline, .exp-scene").forEach(function (el) { revObs.observe(el); });
 
     // ---- Count-up ----
     function fmt(n) { return n.toLocaleString("en-US"); }
@@ -120,6 +120,22 @@
         video.play();
       });
     });
+
+    // ---- Experience: progress-rail active state ----
+    var expSections = [].slice.call(document.querySelectorAll(".exp-section"));
+    if (expSections.length) {
+      var railLinks = {};
+      document.querySelectorAll(".exp-rail a").forEach(function (a) { railLinks[a.getAttribute("href").slice(1)] = a; });
+      var expObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting && railLinks[e.target.id]) {
+            for (var k in railLinks) railLinks[k].classList.remove("active");
+            railLinks[e.target.id].classList.add("active");
+          }
+        });
+      }, { rootMargin: "-45% 0px -50% 0px" });
+      expSections.forEach(function (s) { expObs.observe(s); });
+    }
 
     if (reduce) return;
 
