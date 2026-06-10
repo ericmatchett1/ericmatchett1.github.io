@@ -15,7 +15,7 @@ Robotics & Multimodal AI). Static, no build step, clean URLs.
 - `about.css` — hero AI-pipeline + particle styles
 - `main.js` — theme toggle, active nav (home anchors + page links), scroll
   reveals, count-up stats, drawing timelines, click-to-play videos, particles
-- `assets/` — project + experience images (resume is rendered on-page; no PDF download)
+- `assets/` — project + experience images, plus `eric-matchett.pdf` shown in the Resume page viewer (toolbar hidden; no download button)
 
 ## Nav
 Home anchors (`/#about`, `/#projects`, `/#videos`, `/#contact`) + page links

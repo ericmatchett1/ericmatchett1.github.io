@@ -4,7 +4,7 @@ Drop files here that the site references.
 
 | File | Used for |
 |------|----------|
-| _(no resume PDF)_ | The résumé is rendered as on-page HTML at `/resume/`; downloading is intentionally disabled. |
+| `eric-matchett.pdf` | Shown in the embedded PDF viewer on `/resume/` (toolbar hidden — view only, no download button). |
 
 ## Videos
 The Videos page and home page stream demo clips directly from official
