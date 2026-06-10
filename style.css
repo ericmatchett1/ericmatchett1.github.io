@@ -341,3 +341,71 @@ section[id] { scroll-margin-top: 80px; }
   .htl-item::before { left: -18px; top: 2px; }
 }
 @media (max-width: 560px) { .impact-grid { grid-template-columns: 1fr; } }
+
+/* ============ Hybrid: home compact + detail pages ============ */
+/* Quick stats row */
+.stats-row { border: 1px solid var(--line); border-radius: 16px; background: var(--card-bg); display: grid; grid-template-columns: repeat(4, 1fr); }
+.stats-row .stat { padding: 22px 24px; border-left: 1px solid var(--line); display: flex; gap: 14px; align-items: center; }
+.stats-row .stat:first-child { border-left: none; }
+.stats-row .stat .ico { width: 38px; height: 38px; border-radius: 10px; background: var(--soft-blue); display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+.stats-row .stat .ico svg { width: 20px; height: 20px; color: var(--accent); fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.stats-row .stat-num { font-size: 1.5rem; font-weight: 800; line-height: 1; }
+.stats-row .stat-label { color: var(--muted); font-size: .82rem; margin-top: 3px; }
+
+/* Home about + interests */
+.home-2 { display: grid; grid-template-columns: 0.92fr 1.28fr; gap: 24px; align-items: start; }
+.about-card { border: 1px solid var(--line); border-radius: 16px; background: var(--card-bg); padding: 26px; }
+.about-card p { color: var(--muted); }
+
+/* News + CTA row */
+.news-cta { display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; align-items: start; }
+
+/* Detail page hero */
+.page-hero { padding: 50px 0 10px; }
+.page-hero h1 { font-size: clamp(2rem, 4.5vw, 2.9rem); font-weight: 800; margin: 0 0 10px; letter-spacing: -0.02em; }
+.page-hero p { color: var(--muted); max-width: 560px; margin: 0; font-size: 1.05rem; }
+
+/* Vertical experience timeline */
+.xptl { position: relative; margin-top: 18px; padding-left: 36px; }
+.xptl::before { content: ""; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 2px; background: var(--line); }
+.xptl::after { content: ""; position: absolute; left: 7px; top: 6px; width: 2px; height: 0; background: var(--accent); transition: height 1.8s ease; }
+.xptl.in::after { height: calc(100% - 12px); }
+.xp { position: relative; margin-bottom: 22px; }
+.xp::before { content: ""; position: absolute; left: -36px; top: 26px; width: 16px; height: 16px; border-radius: 50%; background: var(--bg); border: 3px solid var(--accent); }
+.xp-date { color: var(--soft); font-weight: 600; font-size: .82rem; margin-bottom: 8px; }
+.xp-card { border: 1px solid var(--line); border-radius: 14px; background: var(--card-bg); padding: 20px 22px; transition: transform .2s ease, box-shadow .2s ease; }
+.xp-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(15,23,42,.08); }
+.xp-head { display: flex; gap: 14px; align-items: center; }
+.xp-logo { width: 42px; height: 42px; border-radius: 10px; background: var(--soft-blue); color: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 800; flex: 0 0 auto; transition: filter .2s ease; }
+.xp-card:hover .xp-logo { filter: brightness(1.08); }
+.xp-head h3 { margin: 0; font-size: 1.05rem; }
+.xp-org { margin: 1px 0 0; color: var(--accent); font-weight: 600; font-size: .9rem; }
+.xp-bullets { margin: 14px 0 12px; padding-left: 18px; color: var(--muted); font-size: .92rem; }
+.xp-bullets li { margin-bottom: 5px; }
+
+/* University + coursework + awards */
+.uni-card { border: 1px solid var(--line); border-radius: 16px; background: var(--card-bg); padding: 24px; display: flex; gap: 18px; align-items: flex-start; }
+.uni-logo { width: 54px; height: 54px; border-radius: 12px; background: var(--soft-blue); color: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.15rem; flex: 0 0 auto; }
+.uni-card h3 { margin: 0 0 2px; font-size: 1.1rem; }
+.checklist { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px 20px; }
+.checklist li { display: flex; align-items: center; gap: 9px; font-size: .92rem; }
+.checklist svg { width: 16px; height: 16px; color: var(--accent); fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; flex: 0 0 auto; }
+.awards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+.award { border: 1px solid var(--line); border-radius: 12px; background: var(--card-bg); padding: 16px 18px; transition: transform .2s ease, box-shadow .2s ease; }
+.award:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(15,23,42,.07); }
+.award strong { display: block; font-size: .95rem; }
+.award span { color: var(--muted); font-size: .85rem; }
+
+/* Resume PDF viewer */
+.pdf-frame { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--card-bg); }
+.pdf-frame iframe { width: 100%; height: 760px; border: 0; display: block; background: #fff; }
+.pdf-fallback { padding: 16px; color: var(--muted); font-size: .9rem; text-align: center; }
+
+@media (max-width: 900px) {
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .stats-row .stat:nth-child(3) { border-left: none; }
+  .home-2 { grid-template-columns: 1fr; }
+  .news-cta { grid-template-columns: 1fr; }
+  .checklist { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) { .stats-row { grid-template-columns: 1fr; } .stats-row .stat { border-left: none; } .checklist { grid-template-columns: 1fr; } }

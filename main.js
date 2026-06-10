@@ -36,19 +36,30 @@
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
 
-    // ---- Active nav link by section in view ----
-    var navLinks = [].slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
-    var linkMap = {};
-    navLinks.forEach(function (a) { linkMap[a.getAttribute("href").slice(1)] = a; });
-    var navObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting && linkMap[e.target.id]) {
-          navLinks.forEach(function (l) { l.classList.remove("active"); });
-          linkMap[e.target.id].classList.add("active");
-        }
-      });
-    }, { rootMargin: "-45% 0px -50% 0px" });
-    document.querySelectorAll("section[id]").forEach(function (s) { navObs.observe(s); });
+    // ---- Active nav link (mixed: home anchors + detail pages) ----
+    function norm(p) { p = p.replace(/index\.html$/, ""); return p.charAt(p.length - 1) === "/" ? p : p + "/"; }
+    var here = norm(location.pathname);
+    var allNav = [].slice.call(document.querySelectorAll(".nav-links a"));
+    var hashLinks = {};
+    allNav.forEach(function (a) {
+      var href = a.getAttribute("href") || "";
+      if (href.indexOf("#") !== -1) {
+        hashLinks[href.split("#")[1]] = a;            // home-section link
+      } else if (here !== "/" && norm(a.pathname) === here) {
+        a.classList.add("active");                    // detail-page link
+      }
+    });
+    if (here === "/") {
+      var navObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting && hashLinks[e.target.id]) {
+            for (var k in hashLinks) hashLinks[k].classList.remove("active");
+            hashLinks[e.target.id].classList.add("active");
+          }
+        });
+      }, { rootMargin: "-45% 0px -50% 0px" });
+      document.querySelectorAll("section[id]").forEach(function (s) { navObs.observe(s); });
+    }
 
     // ---- Stagger setup for grouped items ----
     [".ab-cards .ab-card", ".stats .stat-card", ".impact-grid .impact-item",

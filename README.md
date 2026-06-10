@@ -1,33 +1,29 @@
 # ericmatchett1.github.io
 
-Single-page portfolio for **Eric Matchett** — Senior Staff AI Engineer
-(Computer Vision, Robotics & Multimodal AI). Static, no build step.
+Portfolio for **Eric Matchett** — Senior Staff AI Engineer (Computer Vision,
+Robotics & Multimodal AI). Static, no build step, clean URLs.
 
-## Files
-- `index.html` — the whole one-page site (anchor navigation)
-- `style.css` — all styling + light/dark theme (`:root[data-theme="dark"]`)
-- `about.css` — hero AI-pipeline + particle/animation styles
-- `main.js` — theme toggle, smooth-scroll active nav, scroll reveals,
-  count-up stats, drawing timeline, click-to-play videos, neural particles
-- `assets/` — add `eric-matchett.pdf` for the Resume button (see `assets/README.md`)
+## Structure
+- `index.html` — one-page **Home** (hero + pipeline, quick stats, about +
+  research interests, featured projects, featured videos, skills, news + CTA)
+- `experience/index.html` → **/experience/** — vertical timeline of roles
+- `education/index.html` → **/education/** — degrees, coursework, research areas, publications
+- `resume/index.html` → **/resume/** — metrics + embedded PDF viewer + download
 
-## Sections (anchors)
-`#about · #research · #work · #impact · #experience · #videos · #skills ·
-#education / #news · #contact`
+## Shared
+- `style.css` — styling + light/dark theme
+- `about.css` — hero AI-pipeline + particle styles
+- `main.js` — theme toggle, active nav (home anchors + page links), scroll
+  reveals, count-up stats, drawing timelines, click-to-play videos, particles
+- `assets/` — add `eric-matchett.pdf` for the Resume download + preview
 
-## Animations (all vanilla JS/CSS/SVG — no frameworks)
-Fade-up scroll reveals, staggered cards, count-up numbers, animated AI
-pipeline (perception → reasoning → action) with flowing data dots and a
-drifting particle field, drawing experience timeline, click-to-play
-featured videos. Respects `prefers-reduced-motion`.
+## Nav
+Home anchors (`/#about`, `/#projects`, `/#videos`, `/#contact`) + page links
+(`/experience/`, `/education/`, `/resume/`). Smooth scroll on home.
 
 ## Run locally
-Serve from the repo root so root-absolute paths (`/style.css`) resolve:
+Serve from repo root so root-absolute paths (`/style.css`) resolve:
 
 ```bash
 python -m http.server 8000   # http://localhost:8000
 ```
-
-## Deploy
-Repo `ericmatchett1.github.io` publishes its default branch to
-`https://ericmatchett1.github.io/`.
