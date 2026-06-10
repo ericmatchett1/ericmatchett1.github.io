@@ -30,11 +30,12 @@
       });
     }
 
-    // Active nav link by filename
-    var path = location.pathname.split("/").pop() || "index.html";
+    // Active nav link (clean URLs: "/about/", "/", ...)
+    var path = location.pathname.replace(/index\.html$/, "");
+    if (path.charAt(path.length - 1) !== "/") path += "/";
     document.querySelectorAll(".nav-links a").forEach(function (a) {
       var href = a.getAttribute("href");
-      if (href === path || (path === "" && href === "index.html")) a.classList.add("active");
+      if (href === path) a.classList.add("active");
     });
 
     // Filter tabs (projects / videos)
