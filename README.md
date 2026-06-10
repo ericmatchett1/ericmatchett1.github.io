@@ -1,38 +1,33 @@
 # ericmatchett1.github.io
 
-Multi-page portfolio for **Eric Matchett** — Senior Staff AI Engineer
-(Computer Vision, Robotics & Multimodal AI). Static HTML, no build step,
-with **clean URLs** (folder-per-page).
+Single-page portfolio for **Eric Matchett** — Senior Staff AI Engineer
+(Computer Vision, Robotics & Multimodal AI). Static, no build step.
 
-## Structure (clean URLs)
-| URL | File |
-|-----|------|
-| `/` | `index.html` |
-| `/about/` | `about/index.html` (animated) |
-| `/research/` | `research/index.html` |
-| `/projects/` | `projects/index.html` |
-| `/videos/` | `videos/index.html` |
-| `/news/` | `news/index.html` |
-| `/experience/` | `experience/index.html` |
-| `/education/` | `education/index.html` |
-| `/contact/` | `contact/index.html` |
-| `/resume/` | `resume/index.html` |
+## Files
+- `index.html` — the whole one-page site (anchor navigation)
+- `style.css` — all styling + light/dark theme (`:root[data-theme="dark"]`)
+- `about.css` — hero AI-pipeline + particle/animation styles
+- `main.js` — theme toggle, smooth-scroll active nav, scroll reveals,
+  count-up stats, drawing timeline, click-to-play videos, neural particles
+- `assets/` — add `eric-matchett.pdf` for the Resume button (see `assets/README.md`)
 
-GitHub Pages serves `/about/` from `about/index.html`, so the address bar
-shows clean paths with no `.html`.
+## Sections (anchors)
+`#about · #research · #work · #impact · #experience · #videos · #skills ·
+#education / #news · #contact`
 
-## Shared assets (root-absolute, e.g. `/style.css`)
-- `style.css` — global styling + light/dark theme
-- `main.js` — theme toggle, active-nav highlight, year, filter tabs
-- `about.css` / `about.js` — animations for the About page only
-- `assets/` — add `eric-matchett.pdf` for the resume download
+## Animations (all vanilla JS/CSS/SVG — no frameworks)
+Fade-up scroll reveals, staggered cards, count-up numbers, animated AI
+pipeline (perception → reasoning → action) with flowing data dots and a
+drifting particle field, drawing experience timeline, click-to-play
+featured videos. Respects `prefers-reduced-motion`.
 
 ## Run locally
-Because pages use root-absolute paths (`/style.css`), serve from the repo
-root so `/` resolves correctly:
+Serve from the repo root so root-absolute paths (`/style.css`) resolve:
 
 ```bash
 python -m http.server 8000   # http://localhost:8000
 ```
 
-(Opening files directly via `file://` will not resolve the `/`-paths.)
+## Deploy
+Repo `ericmatchett1.github.io` publishes its default branch to
+`https://ericmatchett1.github.io/`.
