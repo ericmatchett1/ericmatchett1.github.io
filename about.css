@@ -1,0 +1,158 @@
+/* ============ About page — animated layout ============ */
+
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0;
+  background: linear-gradient(90deg, var(--accent), #7aa2ff);
+  z-index: 100; transition: width 0.08s linear;
+}
+
+/* Eyebrow labels */
+.eyebrow {
+  text-transform: uppercase; letter-spacing: 0.18em;
+  font-size: 0.74rem; font-weight: 700; color: var(--accent); margin: 0 0 12px;
+}
+
+/* ---------- Hero ---------- */
+.ab-hero {
+  position: relative;
+  display: grid; grid-template-columns: 1.02fr 1.1fr; gap: 40px; align-items: center;
+  padding: 60px 0 70px;
+  overflow: hidden;
+}
+.ab-hero-grid {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: radial-gradient(circle at 72% 42%, #000 0%, transparent 62%);
+  mask-image: radial-gradient(circle at 72% 42%, #000 0%, transparent 62%);
+  opacity: 0.5;
+}
+.ab-particles { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.ab-hero-left, .ab-hero-right { position: relative; z-index: 2; }
+.ab-hero h1 { font-size: clamp(2.2rem, 5vw, 3.3rem); font-weight: 800; margin: 0 0 18px; line-height: 1.05; }
+.ab-hero p.lead { color: var(--muted); margin: 0 0 16px; max-width: 460px; font-size: 1.02rem; }
+.ab-hero .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+
+/* ---------- AI pipeline ---------- */
+.ab-stage {
+  position: relative; display: flex; align-items: center; justify-content: space-between;
+  gap: 6px; will-change: transform;
+}
+.ab-module { text-align: center; flex: 0 0 auto; width: 120px; }
+.ab-module svg { width: 96px; height: 96px; display: block; margin: 0 auto 12px; overflow: visible; color: var(--accent); }
+.ab-arrow svg { color: var(--accent); }
+.ab-module .m-title { font-weight: 700; font-size: 0.86rem; }
+.ab-module .m-sub { color: var(--muted); font-size: 0.74rem; }
+
+.ab-arrow { flex: 1 1 auto; height: 40px; min-width: 36px; }
+.ab-arrow svg { width: 100%; height: 100%; overflow: visible; }
+
+/* floating + pulsing animations */
+@keyframes ab-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes ab-spin { to { transform: rotate(360deg); } }
+@keyframes ab-pulse { 0%,100% { opacity: 0.25; transform: scale(1); } 50% { opacity: 0.9; transform: scale(1.5); } }
+@keyframes ab-blink { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
+@keyframes ab-flow { 0% { offset-distance: 0%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
+@keyframes ab-wrist { 0%,86%,100% { transform: rotate(0deg); } 90% { transform: rotate(-10deg); } 94% { transform: rotate(6deg); } }
+@keyframes ab-claw { 0%,84%,100% { transform: translateX(0); } 92% { transform: translateX(2.4px); } }
+
+.cube-body { transform-box: fill-box; transform-origin: center; animation: ab-float 5.5s ease-in-out infinite; }
+.cam-lens { transform-box: fill-box; transform-origin: center; animation: ab-spin 9s linear infinite; }
+.cam-flash { transform-box: fill-box; transform-origin: center; animation: ab-pulse 3s ease-in-out infinite; }
+.node-blink { animation: ab-blink 2.4s ease-in-out infinite; }
+.arm-wrist { transform-box: fill-box; transform-origin: 18px 50px; animation: ab-wrist 12s ease-in-out infinite; }
+.arm-claw-a { transform-box: fill-box; transform-origin: center; animation: ab-claw 12s ease-in-out infinite; }
+.arm-claw-b { transform-box: fill-box; transform-origin: center; animation: ab-claw 12s ease-in-out infinite; }
+
+.flow-dot { offset-path: path("M0,20 L200,20"); animation: ab-flow 2.6s linear infinite; }
+
+/* ---------- Research interest cards ---------- */
+.ab-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+.ab-card {
+  border: 1px solid var(--line); border-radius: 14px; padding: 24px 20px; text-align: center;
+  background: var(--card-bg); position: relative; overflow: hidden;
+  opacity: 0; transform: translateY(18px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, opacity 0.5s ease;
+}
+.ab-card.in { opacity: 1; transform: translateY(0); }
+.ab-card:hover { transform: translateY(-8px); border-color: var(--accent); box-shadow: 0 16px 36px rgba(37,99,235,0.14); }
+.ab-card .ab-ico {
+  width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 16px;
+  display: flex; align-items: center; justify-content: center; background: var(--box-bg);
+  transition: transform 0.25s ease;
+}
+.ab-card:hover .ab-ico { transform: rotate(6deg) scale(1.06); }
+.ab-card .ab-ico svg { width: 28px; height: 28px; fill: none; stroke: var(--accent); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.ab-card h3 { margin: 0 0 8px; font-size: 0.98rem; }
+.ab-card p { margin: 0; color: var(--muted); font-size: 0.86rem; }
+.ab-card .glow {
+  position: absolute; width: 220px; height: 220px; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, rgba(37,99,235,0.16), transparent 60%);
+  opacity: 0; transform: translate(-50%, -50%); transition: opacity 0.2s ease;
+}
+.ab-card:hover .glow { opacity: 1; }
+
+/* ---------- Philosophy banner ---------- */
+.ab-philosophy {
+  position: relative; margin: 30px 0; border-radius: 18px; overflow: hidden;
+  background: radial-gradient(120% 140% at 0% 0%, #14224a 0%, #0a1230 55%, #070c20 100%);
+  color: #eaf0ff; padding: 40px 44px; display: grid; grid-template-columns: 1.05fr 1fr; gap: 24px; align-items: center;
+}
+.ab-philosophy .eyebrow { color: #7aa2ff; }
+.ab-quote { font-size: clamp(1.2rem, 2.4vw, 1.7rem); font-weight: 600; line-height: 1.32; margin: 0; }
+.ab-quote .q { color: #5b8cff; font-size: 1.6em; line-height: 0; vertical-align: -0.35em; margin-right: 4px; }
+.ab-journey { width: 100%; height: 170px; }
+.journey-line { fill: none; stroke: #5b8cff; stroke-width: 2.5; stroke-linecap: round;
+  stroke-dasharray: 1; stroke-dashoffset: 1; filter: drop-shadow(0 0 6px rgba(91,140,255,0.7)); }
+.in .journey-line { animation: ab-draw 2.8s ease forwards; }
+@keyframes ab-draw { to { stroke-dashoffset: 0; } }
+.journey-node { fill: #9bc0ff; animation: ab-blink 2.6s ease-in-out infinite; }
+.journey-label { fill: #aab8e6; font-size: 9px; font-weight: 600; }
+.flag-wave { fill: #5b8cff; transform-box: fill-box; transform-origin: left center; animation: ab-flag 3s ease-in-out infinite; }
+@keyframes ab-flag { 0%,100% { transform: skewY(0deg) scaleX(1); } 50% { transform: skewY(-6deg) scaleX(0.9); } }
+
+/* ---------- Tech stack ---------- */
+.ab-stack { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 26px 22px; }
+.ab-stack-col h4 { display: flex; align-items: center; gap: 9px; margin: 0 0 12px; font-size: 0.95rem; }
+.ab-stack-col h4 svg { width: 20px; height: 20px; fill: none; stroke: var(--accent); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.2s ease; }
+.ab-stack-col:hover h4 svg { transform: scale(1.12); }
+.ab-stack-col ul { list-style: none; margin: 0; padding: 0; }
+.ab-stack-col li { position: relative; padding: 5px 0 5px 16px; color: var(--muted); font-size: 0.9rem; transition: color 0.15s ease; }
+.ab-stack-col li::before { content: ""; position: absolute; left: 0; top: 13px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+.ab-stack-col:hover li { color: var(--ink); }
+
+/* ---------- Contact banner ---------- */
+.ab-contact {
+  margin-top: 34px; border: 1px solid var(--line); border-radius: 16px; background: var(--card-bg);
+  padding: 22px 26px; display: flex; align-items: center; gap: 18px; justify-content: space-between; flex-wrap: wrap;
+}
+.ab-contact .left { display: flex; align-items: center; gap: 16px; }
+.ab-plane { width: 44px; height: 44px; border-radius: 50%; background: var(--box-bg); display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+.ab-plane svg { width: 22px; height: 22px; fill: none; stroke: var(--accent); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; animation: ab-fly 4s ease-in-out infinite; }
+@keyframes ab-fly { 0%,100% { transform: translate(0,0); } 50% { transform: translate(5px,-3px); } }
+.ab-contact .left p { margin: 0; color: var(--muted); max-width: 460px; }
+.ab-cta { display: inline-flex; align-items: center; gap: 8px; }
+.ab-cta:hover { box-shadow: 0 0 0 4px rgba(37,99,235,0.15), 0 8px 22px rgba(37,99,235,0.25); }
+.ab-cta .arr { transition: transform 0.18s ease; }
+.ab-cta:hover .arr { transform: translateX(4px); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .ab-hero { grid-template-columns: 1fr; gap: 34px; }
+  .ab-philosophy { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .ab-module { width: 92px; }
+  .ab-module svg { width: 74px; height: 74px; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .cube-body, .cam-lens, .cam-flash, .node-blink, .arm-wrist, .arm-claw-a, .arm-claw-b,
+  .flow-dot, .journey-node, .flag-wave, .ab-plane svg { animation: none !important; }
+  .journey-line { stroke-dashoffset: 0 !important; }
+  .ab-card { opacity: 1; transform: none; }
+}
