@@ -64,7 +64,7 @@
     // ---- Stagger setup for grouped items ----
     [".ab-cards .ab-card", ".stats .stat-card", ".impact-grid .impact-item",
      ".cards .card", ".fvideos .fvideo", ".htimeline .htl-item",
-     ".ab-stack .ab-stack-col"].forEach(function (sel) {
+     ".ab-stack .ab-stack-col", ".eh-grid .eh", ".edu-extras .edu-xcard"].forEach(function (sel) {
       document.querySelectorAll(sel).forEach(function (el, i) {
         el.classList.add("reveal");
         el.style.transitionDelay = (i * 0.08) + "s";
@@ -77,7 +77,7 @@
         if (e.isIntersecting) { e.target.classList.add("in"); revObs.unobserve(e.target); }
       });
     }, { threshold: 0.15 });
-    document.querySelectorAll(".reveal, .ab-card, .htimeline, .exp-scene").forEach(function (el) { revObs.observe(el); });
+    document.querySelectorAll(".reveal, .ab-card, .htimeline, .exp-scene, .edu-timeline").forEach(function (el) { revObs.observe(el); });
 
     // ---- Count-up ----
     function fmt(n) { return n.toLocaleString("en-US"); }
