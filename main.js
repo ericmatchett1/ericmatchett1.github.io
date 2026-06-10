@@ -148,6 +148,15 @@
       });
       expSections[0].classList.add("exp-active");
 
+      var isDesktop = window.matchMedia("(min-width: 861px)").matches;
+      var sweepEl = null, prevActive = expSections[0].id;
+      if (!reduce && isDesktop) {
+        document.documentElement.classList.add("exp-snap");
+        var cur = document.createElement("div"); cur.className = "exp-cursor"; document.body.appendChild(cur);
+        document.addEventListener("mousemove", function (e) { cur.style.left = e.clientX + "px"; cur.style.top = e.clientY + "px"; cur.style.opacity = "1"; }, { passive: true });
+        sweepEl = document.createElement("div"); sweepEl.className = "exp-sweep"; document.body.appendChild(sweepEl);
+      }
+
       var expObs = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
           if (!e.isIntersecting) return;
@@ -159,22 +168,42 @@
             var idx = railOrder.indexOf(id);
             railFill.style.height = (((idx + 1) / railOrder.length) * (railEl.offsetHeight - 42)) + "px";
           }
+          if (sweepEl && id !== prevActive) { sweepEl.classList.remove("go"); void sweepEl.offsetWidth; sweepEl.classList.add("go"); }
+          prevActive = id;
         });
       }, { rootMargin: "-45% 0px -50% 0px" });
       expSections.forEach(function (s) { expObs.observe(s); });
 
-      var isDesktop = window.matchMedia("(min-width: 861px)").matches;
       if (!reduce && isDesktop) {
-        // 3D tilt
+        // 3D tilt + layered parallax of focal layer
         document.querySelectorAll(".exp-scene").forEach(function (scene) {
           var media = scene.closest(".exp-media") || scene;
+          var core = scene.querySelector(".scene-core");
           media.addEventListener("mousemove", function (ev) {
             var r = scene.getBoundingClientRect();
-            var rx = ((ev.clientY - r.top) / r.height - 0.5) * -5;
-            var ry = ((ev.clientX - r.left) / r.width - 0.5) * 6;
-            scene.style.transform = "perspective(900px) rotateX(" + rx.toFixed(2) + "deg) rotateY(" + ry.toFixed(2) + "deg)";
+            var dx = (ev.clientX - r.left) / r.width - 0.5;
+            var dy = (ev.clientY - r.top) / r.height - 0.5;
+            scene.style.transform = "perspective(900px) rotateX(" + (dy * -5).toFixed(2) + "deg) rotateY(" + (dx * 6).toFixed(2) + "deg)";
+            if (core) core.style.transform = "translate(" + (dx * 16).toFixed(1) + "px," + (dy * 12).toFixed(1) + "px)";
           });
-          media.addEventListener("mouseleave", function () { scene.style.transform = ""; });
+          media.addEventListener("mouseleave", function () { scene.style.transform = ""; if (core) core.style.transform = ""; });
+        });
+
+        // HUD chip data dots
+        document.querySelectorAll(".scene-chip").forEach(function (chip) {
+          var d = document.createElement("span"); d.className = "chip-dot"; chip.appendChild(d);
+        });
+
+        // per-company signature overlay (drawn line)
+        var sigPaths = ["M5 70 L30 50 L55 62 L80 35 L96 46", "M8 74 C 30 60, 50 66, 66 44 S 92 24, 96 20", "M5 28 L95 28 M5 44 L95 44 M5 60 L95 60", "M50 18 a26 26 0 1 0 0.1 0", "M8 60 C 38 66, 54 30, 95 34", "M8 70 L26 54 L42 62 L58 38 L78 50 L95 30"];
+        expSections.forEach(function (sec, i) {
+          var scene = sec.querySelector(".exp-scene"); if (!scene) return;
+          var NS = "http://www.w3.org/2000/svg";
+          var svg = document.createElementNS(NS, "svg");
+          svg.setAttribute("class", "sig-overlay"); svg.setAttribute("viewBox", "0 0 100 80"); svg.setAttribute("preserveAspectRatio", "none");
+          var p = document.createElementNS(NS, "path");
+          p.setAttribute("d", sigPaths[i] || sigPaths[0]); p.setAttribute("class", "sig-path");
+          svg.appendChild(p); scene.appendChild(svg);
         });
 
         // depth grid layers (parallax)
