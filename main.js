@@ -163,7 +163,9 @@
       }, { rootMargin: "-45% 0px -50% 0px" });
       expSections.forEach(function (s) { expObs.observe(s); });
 
-      if (!reduce) {
+      var isDesktop = window.matchMedia("(min-width: 861px)").matches;
+      if (!reduce && isDesktop) {
+        // 3D tilt
         document.querySelectorAll(".exp-scene").forEach(function (scene) {
           var media = scene.closest(".exp-media") || scene;
           media.addEventListener("mousemove", function (ev) {
@@ -173,6 +175,41 @@
             scene.style.transform = "perspective(900px) rotateX(" + rx.toFixed(2) + "deg) rotateY(" + ry.toFixed(2) + "deg)";
           });
           media.addEventListener("mouseleave", function () { scene.style.transform = ""; });
+        });
+
+        // depth grid layers (parallax)
+        var bg = document.createElement("div");
+        bg.className = "exp-bg";
+        bg.innerHTML = '<span class="l1"></span><span class="l2"></span>';
+        document.body.insertBefore(bg, document.body.firstChild);
+        var l1 = bg.querySelector(".l1"), l2 = bg.querySelector(".l2");
+        window.addEventListener("scroll", function () {
+          var y = window.scrollY;
+          l1.style.transform = "translateY(" + (y * 0.04).toFixed(1) + "px)";
+          l2.style.transform = "translateY(" + (y * 0.08).toFixed(1) + "px)";
+        }, { passive: true });
+
+        // floating particles + spotlight
+        document.querySelectorAll(".exp-scene").forEach(function (sc) {
+          var p = document.createElement("div"); p.className = "scene-particles"; sc.appendChild(p);
+        });
+        document.querySelectorAll(".exp-grid").forEach(function (g) {
+          var sp = document.createElement("div"); sp.className = "exp-spot"; g.insertBefore(sp, g.firstChild);
+          g.addEventListener("mousemove", function (ev) {
+            var r = g.getBoundingClientRect();
+            sp.style.setProperty("--mx", ((ev.clientX - r.left) / r.width * 100).toFixed(1) + "%");
+            sp.style.setProperty("--my", ((ev.clientY - r.top) / r.height * 100).toFixed(1) + "%");
+          });
+        });
+
+        // magnetic CTA buttons
+        document.querySelectorAll(".exp-end .btn").forEach(function (btn) {
+          btn.addEventListener("mousemove", function (e) {
+            var r = btn.getBoundingClientRect();
+            var mx = e.clientX - (r.left + r.width / 2), my = e.clientY - (r.top + r.height / 2);
+            btn.style.transform = "translate(" + (mx * 0.2).toFixed(1) + "px," + (my * 0.3).toFixed(1) + "px)";
+          });
+          btn.addEventListener("mouseleave", function () { btn.style.transform = ""; });
         });
       }
     }
