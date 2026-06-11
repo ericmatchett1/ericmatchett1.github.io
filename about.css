@@ -1,11 +1,7 @@
 /* ============ About page — animated layout ============ */
 
 /* Scroll progress bar */
-.scroll-progress {
-  position: fixed; top: 0; left: 0; height: 3px; width: 0;
-  background: linear-gradient(90deg, var(--accent), #7aa2ff);
-  z-index: 100; transition: width 0.08s linear;
-}
+/* .scroll-progress styling moved to style.css (used on all pages) */
 
 /* Eyebrow labels */
 .eyebrow {

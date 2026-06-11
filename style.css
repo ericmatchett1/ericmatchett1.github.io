@@ -746,7 +746,12 @@ section[id] { scroll-margin-top: 80px; }
 /* ============ Experience — premium layer 2 ============ */
 main.wrap { position: relative; z-index: 1; }
 .footer { position: relative; z-index: 1; }
-.scroll-progress { box-shadow: 0 0 10px rgba(37,99,235,.7); }
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0; z-index: 100;
+  background: linear-gradient(90deg, var(--accent), #7aa2ff);
+  box-shadow: 0 0 10px rgba(37,99,235,.7);
+  transition: width 0.08s linear;
+}
 
 /* depth grid layers */
 .exp-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
