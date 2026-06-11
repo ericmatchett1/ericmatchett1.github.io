@@ -246,22 +246,40 @@
     // ---- Education: active entry + collage parallax ----
     var eduEntries = [].slice.call(document.querySelectorAll(".edu-entry"));
     if (eduEntries.length) {
+      eduEntries[0].classList.add("edu-active");
       var eduObs = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
           if (e.isIntersecting) eduEntries.forEach(function (x) { x.classList.toggle("edu-active", x === e.target); });
         });
       }, { rootMargin: "-40% 0px -45% 0px" });
       eduEntries.forEach(function (x) { eduObs.observe(x); });
+
       if (!reduce && window.matchMedia("(min-width: 861px)").matches) {
+        // collage 3D tilt + layered parallax
         document.querySelectorAll(".edu-collage").forEach(function (c) {
+          c.style.transformStyle = "preserve-3d";
           var tiles = [].slice.call(c.querySelectorAll(".tile"));
           c.addEventListener("mousemove", function (ev) {
             var r = c.getBoundingClientRect();
             var dx = (ev.clientX - r.left) / r.width - 0.5, dy = (ev.clientY - r.top) / r.height - 0.5;
-            tiles.forEach(function (t, i) { var f = (i + 1) * 2.5; t.style.transform = "translate(" + (dx * f).toFixed(1) + "px," + (dy * f).toFixed(1) + "px)"; });
+            c.style.transform = "perspective(900px) rotateX(" + (dy * -4).toFixed(2) + "deg) rotateY(" + (dx * 5).toFixed(2) + "deg)";
+            tiles.forEach(function (t, i) { var f = (i + 1) * 2.2; t.style.transform = "translate(" + (dx * f).toFixed(1) + "px," + (dy * f).toFixed(1) + "px)"; });
           });
-          c.addEventListener("mouseleave", function () { tiles.forEach(function (t) { t.style.transform = ""; }); });
+          c.addEventListener("mouseleave", function () { c.style.transform = ""; tiles.forEach(function (t) { t.style.transform = ""; }); });
         });
+
+        // background depth: grid + blobs (parallax)
+        var ebg = document.createElement("div");
+        ebg.className = "edu-bg";
+        ebg.innerHTML = '<div class="grid"></div><div class="blob b1"></div><div class="blob b2"></div>';
+        document.body.insertBefore(ebg, document.body.firstChild);
+        var eg = ebg.querySelector(".grid"), eb1 = ebg.querySelector(".b1"), eb2 = ebg.querySelector(".b2");
+        window.addEventListener("scroll", function () {
+          var y = window.scrollY;
+          eg.style.transform = "translateY(" + (y * 0.05).toFixed(1) + "px)";
+          eb1.style.transform = "translateY(" + (y * 0.12).toFixed(1) + "px)";
+          eb2.style.transform = "translateY(" + (y * -0.08).toFixed(1) + "px)";
+        }, { passive: true });
       }
     }
 
@@ -319,6 +337,11 @@
     var canvas = document.querySelector(".ab-particles");
     if (!canvas) return;
     var ctx = canvas.getContext("2d"), W, H, dpr = Math.min(window.devicePixelRatio || 1, 2), pts = [];
+    var mouse = { x: -9999, y: -9999 };
+    canvas.parentElement.addEventListener("mousemove", function (e) {
+      var r = canvas.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+    }, { passive: true });
+    canvas.parentElement.addEventListener("mouseleave", function () { mouse.x = -9999; mouse.y = -9999; });
     function rgb() {
       var c = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim().replace("#", "");
       if (c.length === 3) c = c.split("").map(function (x){return x+x;}).join("");
@@ -342,6 +365,8 @@
         var p = pts[i]; p.x += p.vx; p.y += p.vy;
         if (p.x < 0 || p.x > W) p.vx *= -1;
         if (p.y < 0 || p.y > H) p.vy *= -1;
+        var mdx = p.x - mouse.x, mdy = p.y - mouse.y, md = Math.sqrt(mdx*mdx + mdy*mdy);
+        if (md < 90 && md > 0) { var fr = (90 - md) / 90 * 0.6; p.x += (mdx/md)*fr; p.y += (mdy/md)*fr; }
         ctx.beginPath(); ctx.fillStyle = "rgba(" + c[0] + "," + c[1] + "," + c[2] + ",0.55)";
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill();
         for (var j = i + 1; j < pts.length; j++) {
