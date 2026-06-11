@@ -578,8 +578,8 @@ section[id] { scroll-margin-top: 80px; }
 .edu-hero { position: relative; overflow: hidden; padding: 60px 0 36px; min-height: 340px; display: flex; align-items: center; }
 .edu-hero .ab-particles { position: absolute; inset: 0; z-index: 0; }
 .edu-hero-bg { position: absolute; right: 0; top: 0; width: 56%; height: 100%; z-index: 0; overflow: hidden; }
-.edu-hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: .55; animation: eduZoom 18s ease-out forwards; }
-.edu-hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--bg), transparent 65%), linear-gradient(0deg, var(--bg), transparent 75%); }
+.edu-hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: .85; filter: brightness(1.18); animation: eduZoom 18s ease-out forwards; }
+.edu-hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--bg), transparent 55%), linear-gradient(0deg, var(--bg) -10%, transparent 60%); }
 @keyframes eduZoom { from { transform: scale(1.14); } to { transform: scale(1); } }
 .edu-hero-inner { position: relative; z-index: 2; max-width: 560px; }
 .edu-hero h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 800; margin: 0 0 14px; letter-spacing: -0.02em; }
