@@ -89,7 +89,7 @@
         if (e.isIntersecting) { e.target.classList.add("in"); revObs.unobserve(e.target); }
       });
     }, { threshold: 0.15 });
-    document.querySelectorAll(".reveal, .ab-card, .htimeline, .exp-scene, .edu-timeline, .exp-end").forEach(function (el) { revObs.observe(el); });
+    document.querySelectorAll(".reveal, .ab-card, .htimeline, .exp-scene, .edu-timeline, .exp-end, .edu-entry").forEach(function (el) { revObs.observe(el); });
 
     // ---- Count-up ----
     function fmt(n) { return n.toLocaleString("en-US"); }
@@ -239,6 +239,28 @@
             btn.style.transform = "translate(" + (mx * 0.2).toFixed(1) + "px," + (my * 0.3).toFixed(1) + "px)";
           });
           btn.addEventListener("mouseleave", function () { btn.style.transform = ""; });
+        });
+      }
+    }
+
+    // ---- Education: active entry + collage parallax ----
+    var eduEntries = [].slice.call(document.querySelectorAll(".edu-entry"));
+    if (eduEntries.length) {
+      var eduObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) eduEntries.forEach(function (x) { x.classList.toggle("edu-active", x === e.target); });
+        });
+      }, { rootMargin: "-40% 0px -45% 0px" });
+      eduEntries.forEach(function (x) { eduObs.observe(x); });
+      if (!reduce && window.matchMedia("(min-width: 861px)").matches) {
+        document.querySelectorAll(".edu-collage").forEach(function (c) {
+          var tiles = [].slice.call(c.querySelectorAll(".tile"));
+          c.addEventListener("mousemove", function (ev) {
+            var r = c.getBoundingClientRect();
+            var dx = (ev.clientX - r.left) / r.width - 0.5, dy = (ev.clientY - r.top) / r.height - 0.5;
+            tiles.forEach(function (t, i) { var f = (i + 1) * 2.5; t.style.transform = "translate(" + (dx * f).toFixed(1) + "px," + (dy * f).toFixed(1) + "px)"; });
+          });
+          c.addEventListener("mouseleave", function () { tiles.forEach(function (t) { t.style.transform = ""; }); });
         });
       }
     }

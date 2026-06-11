@@ -612,7 +612,7 @@ section[id] { scroll-margin-top: 80px; }
 .edu-collage .tile { position: relative; overflow: hidden; border-radius: 8px; min-height: 120px; background: linear-gradient(135deg, #1c2c4f, #0a1530); }
 .edu-collage .tile.big { grid-row: span 2; }
 .edu-collage .tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
-.edu-collage .tile:hover img { transform: scale(1.05); }
+.edu-collage .tile:not(.big):hover img { transform: scale(1.04); }
 .edu-collage .tile:hover { box-shadow: 0 0 0 2px rgba(37,99,235,.5); }
 .edu-collage .tile-ph { position: absolute; inset: 0; z-index: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: rgba(155,192,255,.85); text-align: center; padding: 8px; }
 .edu-collage .tile-ph svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
@@ -861,4 +861,55 @@ main.wrap { position: relative; z-index: 1; }
   .exp-journey-line { transform: scaleX(1); }
   .exp-journey-line .jp { display: none; }
   .exp-snap { scroll-snap-type: none; }
+}
+
+/* ============ Education — animations ============ */
+@keyframes eduUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@keyframes eduFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.edu-hero-inner > * { opacity: 0; animation: eduUp .7s ease forwards; }
+.edu-hero-inner > *:nth-child(1) { animation-delay: .1s; }
+.edu-hero-inner > *:nth-child(2) { animation-delay: .25s; }
+.edu-hero-inner > *:nth-child(3) { animation-delay: .4s; }
+
+/* timeline active state */
+.edu-marker .dot { transition: transform .3s ease, box-shadow .3s ease; }
+.edu-entry.in .dot { transform: scale(1.06); }
+.edu-entry.edu-active .dot { transform: scale(1.14); animation: eduDotPulse 2.4s ease-in-out infinite; }
+@keyframes eduDotPulse { 0%,100% { box-shadow: 0 0 0 6px rgba(37,99,235,.18); } 50% { box-shadow: 0 0 0 10px rgba(37,99,235,.05); } }
+.edu-marker .yr { opacity: 0; transform: translateX(-8px); transition: opacity .5s ease, transform .5s ease; }
+.edu-entry.in .yr { opacity: 1; transform: none; }
+
+/* school card: white panel slide + collage reveal */
+.edu-card .edu-info { opacity: 0; transform: translateX(-30px); transition: opacity .6s ease, transform .6s ease; }
+.edu-card.in .edu-info { opacity: 1; transform: none; }
+.edu-collage .tile { opacity: 0; transition: opacity .6s ease, transform .25s ease; }
+.edu-card.in .tile { opacity: 1; }
+.edu-card.in .tile:nth-child(2) { transition-delay: .15s; }
+.edu-card.in .tile:nth-child(3) { transition-delay: .3s; }
+.edu-collage .tile.big img { transition: transform 8s ease, clip-path .9s ease; clip-path: inset(0 100% 0 0); }
+.edu-card.in .tile.big img { clip-path: inset(0 0 0 0); }
+.edu-entry.edu-active .tile.big img { transform: scale(1.06); }
+
+/* skill chip wave */
+.edu-xcard .chips span { opacity: 0; }
+.edu-xcard.in .chips span { animation: eduFade .4s ease forwards; }
+.edu-xcard.in .chips span:nth-child(1) { animation-delay: .1s; }
+.edu-xcard.in .chips span:nth-child(2) { animation-delay: .17s; }
+.edu-xcard.in .chips span:nth-child(3) { animation-delay: .24s; }
+.edu-xcard.in .chips span:nth-child(4) { animation-delay: .31s; }
+.edu-xcard.in .chips span:nth-child(5) { animation-delay: .38s; }
+.edu-xcard.in .chips span:nth-child(6) { animation-delay: .45s; }
+
+/* quote */
+.edu-quote p { opacity: 0; transform: translateY(8px); transition: opacity .7s ease, transform .7s ease; }
+.edu-quote.in p { opacity: 1; transform: none; }
+.edu-quote cite { opacity: 0; transform: translateX(20px); transition: opacity .6s ease .25s, transform .6s ease .25s; }
+.edu-quote.in cite { opacity: 1; transform: none; }
+
+@media (max-width: 860px) { .edu-collage .tile.big img { clip-path: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .edu-hero-inner > *, .edu-marker .yr, .edu-card .edu-info, .edu-collage .tile,
+  .edu-xcard .chips span, .edu-quote p, .edu-quote cite { opacity: 1 !important; transform: none !important; animation: none !important; }
+  .edu-collage .tile.big img { clip-path: none !important; }
+  .edu-entry.edu-active .dot { animation: none; }
 }
