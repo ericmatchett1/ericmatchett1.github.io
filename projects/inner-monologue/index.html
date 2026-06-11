@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inner Monologue — Eric Matchett</title>
+  <meta name="description" content="Inner Monologue: closed-loop embodied reasoning with language models — a project overview by Eric Matchett." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <script>(function(){try{var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+</head>
+<body>
+  <div class="scroll-progress"></div>
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a href="/" class="brand">Eric Matchett</a>
+      <nav class="nav-links">
+        <a href="/#about">About</a>
+        <a href="/#projects">Projects</a>
+        <a href="/experience/">Experience</a>
+        <a href="/education/">Education</a>
+        <a href="/#videos">Videos</a>
+        <a href="/#contact">Contact</a>
+        <a class="btn" href="/resume/" style="padding:7px 14px">Resume</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="proj-hero">
+      <a class="proj-back" href="/#projects">&larr; Back to projects</a>
+      <p class="eyebrow">Project · Planning &amp; LLMs</p>
+      <h1>Inner Monologue: Closed-Loop Reasoning with Language Models</h1>
+      <p class="proj-sub">Closing the loop between a language-model planner and the world by feeding perception, success detection, and human feedback back to the model as language — so it can re-plan as conditions change.</p>
+      <p class="proj-meta">Everyday Robots · Google Research &nbsp;·&nbsp; 2022 &nbsp;·&nbsp; My role: contributor (closed-loop planning)</p>
+      <div class="proj-actions">
+        <a class="btn btn-primary" href="https://innermonologue.github.io/" target="_blank" rel="noopener">View Official Project ↗</a>
+        <a class="btn" href="https://arxiv.org/abs/2207.05608" target="_blank" rel="noopener">Read Paper ↗</a>
+      </div>
+      <div class="proj-tags"><span>LLM Planning</span><span>Closed-Loop</span><span>Feedback</span><span>Robotics</span></div>
+    </section>
+
+    <figure class="proj-media" style="margin-top:24px">
+      <video autoplay muted loop playsinline preload="metadata"><source src="https://innermonologue.github.io/img/im_demo1_an.mp4" type="video/mp4" /></video>
+      <figcaption class="proj-figcap">The planner reasons from environment feedback and adjusts its next step.</figcaption>
+    </figure>
+
+    <section class="proj-section">
+      <h2>My contribution</h2>
+      <p>I contributed to Inner Monologue, focusing on closed-loop planning — using language as the medium for feedback so a language-model planner could observe outcomes, recover from failures, and adapt its plan during execution.</p>
+      <div class="proj-grid" style="margin-top:18px">
+        <div class="proj-card"><h3><svg viewBox="0 0 24 24"><path d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-4 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/></svg>Closed-loop planning</h3><p>Re-planned each step based on what actually happened.</p></div>
+        <div class="proj-card"><h3><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>Feedback grounding</h3><p>Turned perception, success checks, and human input into language the model could use.</p></div>
+        <div class="proj-card"><h3><svg viewBox="0 0 24 24"><path d="M4 18 9 11l4 4 7-9"/><path d="M16 6h4v4"/></svg>Robust recovery</h3><p>Detected failures and adjusted, improving long-horizon reliability.</p></div>
+        <div class="proj-card"><h3><svg viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg>Evaluation</h3><p>Studied how feedback types affected task success.</p></div>
+      </div>
+    </section>
+
+    <section class="proj-section">
+      <h2>Technical overview</h2>
+      <ul class="proj-list">
+        <li>An LLM planner proposes the next step toward a natural-language goal.</li>
+        <li>Outcomes — scene descriptions, success detection, human hints — are returned as text.</li>
+        <li>The planner incorporates that feedback and revises its plan on the fly.</li>
+        <li>This loop makes execution more robust in changing, unstructured environments.</li>
+      </ul>
+    </section>
+
+    <section class="proj-section">
+      <h2>Results &amp; impact</h2>
+      <div class="proj-grid">
+        <div class="proj-card"><h3>Adaptive plans</h3><p>The robot recovered from errors instead of blindly following a fixed plan.</p></div>
+        <div class="proj-card"><h3>Language as the interface</h3><p>Diverse feedback unified into one textual channel the LLM understood.</p></div>
+        <div class="proj-card"><h3>More reliable tasks</h3><p>Closing the loop improved success on longer instructions.</p></div>
+      </div>
+    </section>
+
+    <section class="proj-section">
+      <h2>Media</h2>
+      <p class="proj-note">Placeholders for my own assets — drop files into <code>/assets/projects/inner-monologue/</code>.</p>
+      <div class="proj-media-grid" style="margin-top:14px">
+        <figure><div class="pm"><img src="/assets/projects/inner-monologue/hero.jpg" alt="Inner Monologue" loading="lazy" onerror="this.onerror=null;this.src='/assets/projects/inner-monologue.jpg'" /></div><figcaption>Cover image &nbsp;<code>hero.jpg</code></figcaption></figure>
+        <figure><div class="pm"><video controls preload="none"><source src="/assets/projects/inner-monologue/demo.mp4" type="video/mp4" /></video></div><figcaption>Demo clip &nbsp;<code>demo.mp4</code></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="proj-section">
+      <h2>Attribution</h2>
+      <div class="proj-attrib">The official <a href="https://innermonologue.github.io/" target="_blank" rel="noopener">Inner Monologue project page</a> and <a href="https://arxiv.org/abs/2207.05608" target="_blank" rel="noopener">paper</a> are linked for reference. This portfolio page summarizes my personal contribution and understanding in original wording, and does not reproduce the official site's text, figures, or images.</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>© <span class="year"></span> Eric Matchett. All rights reserved.</span>
+      <span class="footer-links">
+        <a href="https://github.com/ericmatchett1" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" data-needs-url="linkedin">LinkedIn</a>
+        <a href="mailto:matchetteric1@gmail.com">Email</a>
+      </span>
+    </div>
+  </footer>
+  <script src="/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Waymo Driver — Eric Matchett</title>
+  <meta name="description" content="Waymo Driver: perception, sensor fusion, and decision-making for autonomous vehicles. A project overview by Eric Matchett." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <script>(function(){try{var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+</head>
+<body>
+  <div class="scroll-progress"></div>
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a href="/" class="brand">Eric Matchett</a>
+      <nav class="nav-links">
+        <a href="/#about">About</a>
+        <a href="/#projects">Projects</a>
+        <a href="/experience/">Experience</a>
+        <a href="/education/">Education</a>
+        <a href="/#videos">Videos</a>
+        <a href="/#contact">Contact</a>
+        <a class="btn" href="/resume/" style="padding:7px 14px">Resume</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="proj-hero">
+      <a class="proj-back" href="/#projects">&larr; Back to projects</a>
+      <p class="eyebrow">Project · Autonomous Vehicles</p>
+      <h1>Waymo Driver: Perception &amp; Sensor Fusion</h1>
+      <p class="proj-sub">Multimodal perception, behavior prediction, and decision-making that let an autonomous vehicle understand and safely navigate complex real-world environments.</p>
+      <p class="proj-meta">Waymo &nbsp;·&nbsp; 2016–2019, 2023–2024 &nbsp;·&nbsp; My role: <strong>Tech Lead</strong> / Staff Software Engineer</p>
+      <div class="proj-actions">
+        <a class="btn btn-primary" href="https://waymo.com/" target="_blank" rel="noopener">View Official Project ↗</a>
+      </div>
+      <div class="proj-tags"><span>Perception</span><span>Sensor Fusion</span><span>LiDAR · Radar · Camera</span><span>Localization</span><span>Behavior Prediction</span></div>
+    </section>
+
+    <figure class="proj-media" style="margin-top:24px">
+      <video autoplay muted loop playsinline preload="metadata"><source src="https://storage.googleapis.com/waymo-prod-cdn/uploads/40b467ff5944cfec50204f6e71da7f52-splash_11_30.compressed.mp4" type="video/mp4" /></video>
+      <figcaption class="proj-figcap">Fusing sensors into one reliable view of the world for safe driving.</figcaption>
+    </figure>
+
+    <section class="proj-section">
+      <h2>My contribution</h2>
+      <p>As Tech Lead and Staff Software Engineer, I led perception and sensor-fusion work for the Waymo Driver — building the models and systems that let the vehicle detect, track, predict, and respond to everything around it, and scaling them through distributed training and simulation.</p>
+      <div class="proj-grid" style="margin-top:18px">
+        <div class="proj-card"><h3><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Perception</h3><p>360° understanding by fusing LiDAR, radar, and camera into one view.</p></div>
+        <div class="proj-card"><h3><svg viewBox="0 0 24 24"><path d="M4 18 9 11l4 4 7-9"/><path d="M16 6h4v4"/></svg>Behavior prediction</h3><p>Anticipated how other road users would move.</p></div>
+        <div class="proj-card"><h3><svg viewBox="0 0 24 24"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>Localization &amp; mapping</h3><p>Centimeter-level positioning against HD maps where GPS falls short.</p></div>
+        <div class="proj-card"><h3><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="2"/></svg>Decision-making</h3><p>Systems for safe, natural driving choices in dense urban scenes.</p></div>
+        <div class="proj-card"><h3><svg viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg>Scale &amp; simulation</h3><p>Distributed training and AV simulation to accelerate and validate models.</p></div>
+        <div class="proj-card"><h3><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>Reliability</h3><p>Improved detection reliability and cut false positives in busy driving.</p></div>
+      </div>
+    </section>
+
+    <section class="proj-section">
+      <h2>Technical overview</h2>
+      <ul class="proj-list">
+        <li>No single sensor is enough — cameras struggle at night, LiDAR degrades in rain, radar is low-resolution.</li>
+        <li>A fusion layer combines LiDAR, radar, and camera into one reliable scene representation.</li>
+        <li>Prediction and decision-making models turn that understanding into safe actions.</li>
+        <li>Localization fuses GPS, IMU, and LiDAR against HD maps for precise positioning.</li>
+      </ul>
+    </section>
+
+    <section class="proj-section">
+      <h2>Results &amp; impact</h2>
+      <div class="proj-grid">
+        <div class="proj-card"><h3>Reliable perception</h3><p>Stronger object detection and tracking in challenging conditions.</p></div>
+        <div class="proj-card"><h3>Precise positioning</h3><p>Centimeter-level localization in tunnels, urban canyons, and beyond.</p></div>
+        <div class="proj-card"><h3>Safe scaling</h3><p>Supported safe expansion of ride-hailing across real-world environments.</p></div>
+      </div>
+    </section>
+
+    <section class="proj-section">
+      <h2>Media</h2>
+      <p class="proj-note">Placeholders for my own assets — drop files into <code>/assets/projects/waymo-driver/</code>.</p>
+      <div class="proj-media-grid" style="margin-top:14px">
+        <figure><div class="pm"><img src="/assets/projects/waymo-driver/hero.jpg" alt="Waymo Driver" loading="lazy" onerror="this.onerror=null;this.src='/assets/projects/waymo-driver.jpg'" /></div><figcaption>Cover image &nbsp;<code>hero.jpg</code></figcaption></figure>
+        <figure><div class="pm"><video controls preload="none"><source src="/assets/projects/waymo-driver/demo.mp4" type="video/mp4" /></video></div><figcaption>Demo clip &nbsp;<code>demo.mp4</code></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="proj-section">
+      <h2>Attribution</h2>
+      <div class="proj-attrib">The official <a href="https://waymo.com/" target="_blank" rel="noopener">Waymo</a> site is linked for reference. This portfolio page summarizes my role and understanding in original wording, and does not reproduce official text, figures, or images.</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>© <span class="year"></span> Eric Matchett. All rights reserved.</span>
+      <span class="footer-links">
+        <a href="https://github.com/ericmatchett1" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" data-needs-url="linkedin">LinkedIn</a>
+        <a href="mailto:matchetteric1@gmail.com">Email</a>
+      </span>
+    </div>
+  </footer>
+  <script src="/main.js"></script>
+</body>
+</html>
