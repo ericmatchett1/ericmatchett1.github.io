@@ -76,7 +76,8 @@
     // ---- Stagger setup for grouped items ----
     [".ab-cards .ab-card", ".stats .stat-card", ".impact-grid .impact-item",
      ".cards .card", ".fvideos .fvideo", ".htimeline .htl-item",
-     ".ab-stack .ab-stack-col", ".eh-grid .eh", ".edu-extras .edu-xcard"].forEach(function (sel) {
+     ".ab-stack .ab-stack-col", ".eh-grid .eh", ".edu-extras .edu-xcard",
+     ".proj-grid .proj-card", ".saycan-walk .walk-step", ".saycan-flow .flow-step"].forEach(function (sel) {
       document.querySelectorAll(sel).forEach(function (el, i) {
         el.classList.add("reveal");
         el.style.transitionDelay = (i * 0.08) + "s";

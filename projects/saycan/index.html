@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SayCan — Eric Matchett</title>
-  <meta name="description" content="SayCan — grounding language in robotic affordances. Project overview by Eric Matchett." />
+  <meta name="description" content="SayCan: grounding language models in robotic affordances — a project overview by Eric Matchett." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -30,75 +30,110 @@
   </header>
 
   <main class="wrap">
-    <!-- HERO -->
+    <!-- 1. HERO -->
     <section class="proj-hero">
       <a class="proj-back" href="/#projects">&larr; Back to projects</a>
       <p class="eyebrow">Project · Robotics &amp; LLMs</p>
-      <h1>SayCan</h1>
-      <p class="proj-sub">Grounding Language in Robotic Affordances</p>
-      <p class="proj-meta">Everyday Robots · Google Research &nbsp;·&nbsp; 2022 &nbsp;·&nbsp; Role: <strong>Co-lead</strong> (Eric Matchett)</p>
+      <h1>SayCan: Grounding Language Models in Robotic Affordances</h1>
+      <p class="proj-sub">Connecting large language models with robotic affordance and value functions so a robot can choose actions that are both useful for the instruction and physically feasible in its environment.</p>
+      <p class="proj-meta">Everyday Robots · Google Research &nbsp;·&nbsp; 2022 &nbsp;·&nbsp; My role: contributor (language reasoning, planning &amp; evaluation)</p>
       <div class="proj-actions">
-        <a class="btn btn-primary" href="https://arxiv.org/abs/2204.01691" target="_blank" rel="noopener">Read the paper ↗</a>
-        <a class="btn" href="https://say-can.github.io/" target="_blank" rel="noopener">Official project site ↗</a>
-        <a class="btn" href="#demo">Watch the demo</a>
+        <a class="btn btn-primary" href="https://say-can.github.io/" target="_blank" rel="noopener">View Official Project ↗</a>
+        <a class="btn" href="https://arxiv.org/abs/2204.01691" target="_blank" rel="noopener">Read Paper ↗</a>
       </div>
-      <div class="proj-tags"><span>LLMs</span><span>Robot Planning</span><span>Affordances</span><span>Embodied AI</span><span>Manipulation</span></div>
+      <div class="proj-tags"><span>LLMs</span><span>Robot Planning</span><span>Affordances</span><span>Embodied AI</span><span>Multimodal AI</span></div>
     </section>
 
-    <!-- TEASER -->
-    <figure class="proj-media" id="demo" style="margin-top:24px">
-      <img src="https://say-can.github.io/img/saycan-llm.gif" alt="SayCan planning a long-horizon task from a natural-language instruction" loading="lazy" />
-      <figcaption class="proj-figcap">SayCan turns a natural-language request into a sequence of skills the robot can actually perform.</figcaption>
+    <figure class="proj-media" style="margin-top:24px">
+      <img src="/assets/projects/saycan/hero.jpg" alt="SayCan turning a natural-language instruction into robot actions"
+           loading="lazy" onerror="this.onerror=null;this.src='https://say-can.github.io/img/saycan-llm.gif'" />
+      <figcaption class="proj-figcap">From a single instruction to a sequence of skills the robot can actually perform.</figcaption>
     </figure>
 
-    <!-- OVERVIEW -->
+    <!-- 2. MY CONTRIBUTION -->
     <section class="proj-section">
-      <h2>Overview</h2>
-      <p>SayCan is a system for telling a robot what to do in plain language and having it carry out long, multi-step tasks in the real world. The core idea is to pair the broad knowledge of a large language model with what a specific robot is physically able to do in its current situation — so the plan it produces is both <em>relevant</em> to the request and <em>achievable</em> with the robot's learned skills.</p>
-      <p>The name captures the two halves of the method: <strong>"Say"</strong> — the language model proposes useful next steps for the goal — and <strong>"Can"</strong> — learned value functions estimate how likely each skill is to succeed from the robot's current state. Combining the two lets the robot choose actions that are simultaneously sensible and feasible, then execute them step by step.</p>
-    </section>
-
-    <!-- APPROACH -->
-    <section class="proj-section">
-      <h2>How it works</h2>
-      <div class="proj-two">
-        <div class="proj-card">
-          <h3>Say — language model</h3>
-          <p>A large language model scores a library of low-level skills (e.g. "pick up the sponge", "go to the table") by how useful each one is for completing the natural-language instruction.</p>
-        </div>
-        <div class="proj-card">
-          <h3>Can — affordance values</h3>
-          <p>Learned value functions estimate the probability that each skill can be executed successfully from the robot's current observation, grounding language in the physical world.</p>
-        </div>
+      <h2>My contribution</h2>
+      <p>I contributed to the SayCan project, focusing on the intersection of language reasoning, robotic action planning, and evaluation workflows — connecting high-level semantic understanding with the robot's low-level, learned skills so that natural-language instructions could be carried out reliably in real environments.</p>
+      <div class="proj-grid reveal" style="margin-top:18px">
+        <div class="proj-card"><h3><svg viewBox="0 0 24 24"><path d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-4 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/></svg>Language-conditioned planning</h3><p>Translated natural-language goals into ordered sequences of executable robot skills.</p></div>
+        <div class="proj-card"><h3><svg viewBox="0 0 24 24"><path d="M12 3a5 5 0 0 0-5 5c0 1.6.7 2.7 1.5 3.6.6.7 1 1.3 1 2.4v1h5v-1c0-1.1.4-1.7 1-2.4C17.3 10.7 18 9.6 18 8a5 5 0 0 0-6-5Z"/></svg>LLM high-level reasoning</h3><p>Used large language models to propose and rank candidate actions for long-horizon tasks.</p></div>
+        <div class="proj-card"><h3><svg viewBox="0 0 24 24"><path d="M4 18 9 11l4 4 7-9"/><path d="M16 6h4v4"/></svg>Affordance / value integration</h3><p>Combined LLM intent with learned value functions to ground language in what's physically possible.</p></div>
+        <div class="proj-card"><h3><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>Robotics evaluation workflows</h3><p>Built and ran evaluation pipelines to measure task success across many real-world trials.</p></div>
+        <div class="proj-card"><h3><svg viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg>Experiment analysis</h3><p>Analyzed results and interpreted failure modes to guide model and skill improvements.</p></div>
+        <div class="proj-card"><h3><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.6 7.8 11 15M16.4 7.8 13 15M8 6h8"/></svg>Multimodal / embodied AI</h3><p>Worked across vision, language, and action to connect reasoning with real-world behavior.</p></div>
       </div>
-      <p style="margin-top:18px">At every step, the two signals are multiplied: the robot picks the skill that maximizes <em>usefulness × feasibility</em>, runs it, observes the result, and repeats — composing simple skills into long-horizon behavior without a hand-written plan.</p>
     </section>
 
-    <!-- HIGHLIGHTS -->
+    <!-- 3. TECHNICAL OVERVIEW -->
     <section class="proj-section">
-      <h2>Highlights</h2>
+      <h2>Technical overview</h2>
+      <p>SayCan lets a robot follow plain-language instructions by combining two complementary signals at every step of a task:</p>
       <ul class="proj-list">
-        <li>Executes long-horizon, natural-language instructions on real mobile manipulators in everyday environments.</li>
-        <li>No task-specific planner — behavior emerges from grounding an LLM in learned robot affordances.</li>
-        <li>Foundational to later work combining language, perception, and action (RT-2, PaLM-E, Inner Monologue).</li>
-        <li>Widely covered: reported by 260+ media outlets including TechCrunch, WIRED, Reuters, and The Washington Post.</li>
+        <li><strong>What is useful</strong> — a language model proposes the actions that make sense for the instruction.</li>
+        <li><strong>What is possible</strong> — an affordance model estimates which actions can actually be executed in the current environment.</li>
+        <li><strong>SayCan score</strong> — the system combines usefulness with feasibility, so the chosen action is relevant <em>and</em> achievable.</li>
+        <li><strong>Step by step</strong> — the robot performs the best action, observes the new state, and re-plans the next one until the task is complete.</li>
       </ul>
     </section>
 
-    <!-- MY ROLE -->
+    <!-- 4. VISUAL EXPLANATION (original diagram) -->
     <section class="proj-section">
-      <h2>My contribution</h2>
-      <p>As a Staff Research Scientist at Everyday Robots, I co-led the SayCan effort — working on using large language models for robot planning and reasoning, and on connecting language-level intent to the robot's learned, low-level skills so that instructions could be carried out reliably in unstructured settings.</p>
+      <h2>How a decision is made</h2>
+      <ol class="saycan-flow">
+        <li class="flow-step"><span class="fs-dot"></span><div class="fs-body"><b>User instruction</b><p>A natural-language goal, e.g. "Bring me a snack and a drink."</p></div></li>
+        <li class="flow-step"><span class="fs-dot"></span><div class="fs-body"><b>LLM candidate actions</b><p>The language model proposes skills that are useful for the goal — "what makes sense."</p></div></li>
+        <li class="flow-step"><span class="fs-dot"></span><div class="fs-body"><b>Affordance scoring</b><p>Value functions score how feasible each skill is right now — "what's possible."</p></div></li>
+        <li class="flow-step"><span class="fs-dot"></span><div class="fs-body"><b>Combined SayCan score</b><p>Usefulness × feasibility selects the next best action to execute.</p></div></li>
+        <li class="flow-step"><span class="fs-dot"></span><div class="fs-body"><b>Robot action execution</b><p>The robot performs the highest-scoring skill in the real world.</p></div></li>
+        <li class="flow-step"><span class="fs-dot"></span><div class="fs-body"><b>Observe &amp; repeat</b><p>It senses the new state and plans the next step — until the task is done.</p></div></li>
+      </ol>
     </section>
 
-    <!-- REFERENCE -->
+    <!-- 5. EXAMPLE WALKTHROUGH -->
     <section class="proj-section">
-      <h2>Reference</h2>
-      <p class="proj-note">Ahn et al., <em>"Do As I Can, Not As I Say: Grounding Language in Robotic Affordances,"</em> 2022.
-      Full details, additional videos, and the publication are available on the
-      <a href="https://say-can.github.io/" target="_blank" rel="noopener">official project page ↗</a> and on
-      <a href="https://arxiv.org/abs/2204.01691" target="_blank" rel="noopener">arXiv ↗</a>.</p>
-      <p class="proj-note">This page is an overview written for my portfolio; the demo clip is hosted by the original project.</p>
+      <h2>Example walkthrough</h2>
+      <p>Instruction: <strong>"Bring me a snack and a drink."</strong> SayCan decomposes it into feasible steps:</p>
+      <div class="saycan-walk" style="margin-top:10px">
+        <div class="walk-step"><span class="ws-n">STEP 1</span><b>Find snack</b><span class="d">Locate a snack in the scene.</span></div>
+        <div class="walk-step"><span class="ws-n">STEP 2</span><b>Pick snack</b><span class="d">Grasp it from the surface.</span></div>
+        <div class="walk-step"><span class="ws-n">STEP 3</span><b>Place snack</b><span class="d">Set it down on the tray.</span></div>
+        <div class="walk-step"><span class="ws-n">STEP 4</span><b>Find drink</b><span class="d">Locate a drink nearby.</span></div>
+        <div class="walk-step"><span class="ws-n">STEP 5</span><b>Pick drink</b><span class="d">Grasp the drink.</span></div>
+        <div class="walk-step"><span class="ws-n">STEP 6</span><b>Deliver to user</b><span class="d">Bring both to the person.</span></div>
+      </div>
+    </section>
+
+    <!-- 6. RESULTS / IMPACT -->
+    <section class="proj-section">
+      <h2>Results &amp; impact</h2>
+      <div class="proj-grid">
+        <div class="proj-card"><h3>Interpretable decisions</h3><p>Separating "useful" from "possible" makes each robot choice easier to understand and debug.</p></div>
+        <div class="proj-card"><h3>Reliable long-horizon tasks</h3><p>Composing simple skills enabled more dependable execution of multi-step instructions.</p></div>
+        <div class="proj-card"><h3>Reasoning meets feasibility</h3><p>Connected semantic intent with real-world robotic capability, not just plausible text.</p></div>
+        <div class="proj-card"><h3>Grounded language models</h3><p>Demonstrated how LLMs can be grounded in physical environments through learned affordances.</p></div>
+      </div>
+    </section>
+
+    <!-- 7. MEDIA -->
+    <section class="proj-section">
+      <h2>Media</h2>
+      <p class="proj-note">Placeholders for my own assets — drop the files into <code>/assets/projects/saycan/</code> and they appear here.</p>
+      <div class="proj-media-grid" style="margin-top:14px">
+        <figure><div class="pm"><img src="/assets/projects/saycan/diagram.png" alt="SayCan system diagram" loading="lazy" onerror="this.closest('.pm').classList.add('pm-empty');this.remove();" /></div><figcaption>System diagram &nbsp;<code>diagram.png</code></figcaption></figure>
+        <figure><div class="pm"><video controls preload="none" poster="/assets/projects/saycan/hero.jpg"><source src="/assets/projects/saycan/demo-1.mp4" type="video/mp4" /></video></div><figcaption>Demo clip 1 &nbsp;<code>demo-1.mp4</code></figcaption></figure>
+        <figure><div class="pm"><video controls preload="none" poster="/assets/projects/saycan/hero.jpg"><source src="/assets/projects/saycan/demo-2.mp4" type="video/mp4" /></video></div><figcaption>Demo clip 2 &nbsp;<code>demo-2.mp4</code></figcaption></figure>
+      </div>
+    </section>
+
+    <!-- 8. ATTRIBUTION -->
+    <section class="proj-section">
+      <h2>Attribution</h2>
+      <div class="proj-attrib">
+        The official <a href="https://say-can.github.io/" target="_blank" rel="noopener">SayCan project page</a> and
+        <a href="https://arxiv.org/abs/2204.01691" target="_blank" rel="noopener">paper</a> are linked for reference.
+        This portfolio page summarizes my personal contribution and understanding in original wording, and does not reproduce
+        the official site's text, figures, or images.
+      </div>
     </section>
   </main>
 
