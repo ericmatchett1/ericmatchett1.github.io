@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SayCan — Eric Matchett</title>
+  <meta name="description" content="SayCan — grounding language in robotic affordances. Project overview by Eric Matchett." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <script>(function(){try{var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+</head>
+<body>
+  <div class="scroll-progress"></div>
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a href="/" class="brand">Eric Matchett</a>
+      <nav class="nav-links">
+        <a href="/#about">About</a>
+        <a href="/#projects">Projects</a>
+        <a href="/experience/">Experience</a>
+        <a href="/education/">Education</a>
+        <a href="/#videos">Videos</a>
+        <a href="/#contact">Contact</a>
+        <a class="btn" href="/resume/" style="padding:7px 14px">Resume</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="proj-hero">
+      <a class="proj-back" href="/#projects">&larr; Back to projects</a>
+      <p class="eyebrow">Project · Robotics &amp; LLMs</p>
+      <h1>SayCan</h1>
+      <p class="proj-sub">Grounding Language in Robotic Affordances</p>
+      <p class="proj-meta">Everyday Robots · Google Research &nbsp;·&nbsp; 2022 &nbsp;·&nbsp; Role: <strong>Co-lead</strong> (Eric Matchett)</p>
+      <div class="proj-actions">
+        <a class="btn btn-primary" href="https://arxiv.org/abs/2204.01691" target="_blank" rel="noopener">Read the paper ↗</a>
+        <a class="btn" href="https://say-can.github.io/" target="_blank" rel="noopener">Official project site ↗</a>
+        <a class="btn" href="#demo">Watch the demo</a>
+      </div>
+      <div class="proj-tags"><span>LLMs</span><span>Robot Planning</span><span>Affordances</span><span>Embodied AI</span><span>Manipulation</span></div>
+    </section>
+
+    <!-- TEASER -->
+    <figure class="proj-media" id="demo" style="margin-top:24px">
+      <img src="https://say-can.github.io/img/saycan-llm.gif" alt="SayCan planning a long-horizon task from a natural-language instruction" loading="lazy" />
+      <figcaption class="proj-figcap">SayCan turns a natural-language request into a sequence of skills the robot can actually perform.</figcaption>
+    </figure>
+
+    <!-- OVERVIEW -->
+    <section class="proj-section">
+      <h2>Overview</h2>
+      <p>SayCan is a system for telling a robot what to do in plain language and having it carry out long, multi-step tasks in the real world. The core idea is to pair the broad knowledge of a large language model with what a specific robot is physically able to do in its current situation — so the plan it produces is both <em>relevant</em> to the request and <em>achievable</em> with the robot's learned skills.</p>
+      <p>The name captures the two halves of the method: <strong>"Say"</strong> — the language model proposes useful next steps for the goal — and <strong>"Can"</strong> — learned value functions estimate how likely each skill is to succeed from the robot's current state. Combining the two lets the robot choose actions that are simultaneously sensible and feasible, then execute them step by step.</p>
+    </section>
+
+    <!-- APPROACH -->
+    <section class="proj-section">
+      <h2>How it works</h2>
+      <div class="proj-two">
+        <div class="proj-card">
+          <h3>Say — language model</h3>
+          <p>A large language model scores a library of low-level skills (e.g. "pick up the sponge", "go to the table") by how useful each one is for completing the natural-language instruction.</p>
+        </div>
+        <div class="proj-card">
+          <h3>Can — affordance values</h3>
+          <p>Learned value functions estimate the probability that each skill can be executed successfully from the robot's current observation, grounding language in the physical world.</p>
+        </div>
+      </div>
+      <p style="margin-top:18px">At every step, the two signals are multiplied: the robot picks the skill that maximizes <em>usefulness × feasibility</em>, runs it, observes the result, and repeats — composing simple skills into long-horizon behavior without a hand-written plan.</p>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section class="proj-section">
+      <h2>Highlights</h2>
+      <ul class="proj-list">
+        <li>Executes long-horizon, natural-language instructions on real mobile manipulators in everyday environments.</li>
+        <li>No task-specific planner — behavior emerges from grounding an LLM in learned robot affordances.</li>
+        <li>Foundational to later work combining language, perception, and action (RT-2, PaLM-E, Inner Monologue).</li>
+        <li>Widely covered: reported by 260+ media outlets including TechCrunch, WIRED, Reuters, and The Washington Post.</li>
+      </ul>
+    </section>
+
+    <!-- MY ROLE -->
+    <section class="proj-section">
+      <h2>My contribution</h2>
+      <p>As a Staff Research Scientist at Everyday Robots, I co-led the SayCan effort — working on using large language models for robot planning and reasoning, and on connecting language-level intent to the robot's learned, low-level skills so that instructions could be carried out reliably in unstructured settings.</p>
+    </section>
+
+    <!-- REFERENCE -->
+    <section class="proj-section">
+      <h2>Reference</h2>
+      <p class="proj-note">Ahn et al., <em>"Do As I Can, Not As I Say: Grounding Language in Robotic Affordances,"</em> 2022.
+      Full details, additional videos, and the publication are available on the
+      <a href="https://say-can.github.io/" target="_blank" rel="noopener">official project page ↗</a> and on
+      <a href="https://arxiv.org/abs/2204.01691" target="_blank" rel="noopener">arXiv ↗</a>.</p>
+      <p class="proj-note">This page is an overview written for my portfolio; the demo clip is hosted by the original project.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>© <span class="year"></span> Eric Matchett. All rights reserved.</span>
+      <span class="footer-links">
+        <a href="https://github.com/ericmatchett1" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" data-needs-url="linkedin">LinkedIn</a>
+        <a href="mailto:matchetteric1@gmail.com">Email</a>
+      </span>
+    </div>
+  </footer>
+  <script src="/main.js"></script>
+</body>
+</html>
