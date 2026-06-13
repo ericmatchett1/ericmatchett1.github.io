@@ -65,6 +65,9 @@ h1, h2, h3, h4 { letter-spacing: -0.01em; }
 }
 .nav-links a:hover { color: var(--ink); text-decoration: none; }
 .nav-links a.active { color: var(--accent); border-bottom-color: var(--accent); }
+.nav-links a.btn { color: var(--ink); border-bottom-color: transparent; }
+.nav-links a.btn-primary { color: #fff; }
+.nav-links a.btn-primary:hover { color: #fff; }
 .theme-toggle {
   border: 1px solid var(--line); background: var(--card-bg); color: var(--ink);
   width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-size: 0.95rem;
