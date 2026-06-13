@@ -1043,3 +1043,5 @@ main.wrap { position: relative; z-index: 1; }
 .contact-chip { display: inline-flex; align-items: center; gap: 9px; padding: 9px 16px; border: 1px solid var(--line); border-radius: 999px; background: var(--card-bg); color: var(--ink); font-size: .9rem; font-weight: 500; text-decoration: none; transition: border-color .2s ease, color .2s ease, transform .2s ease; }
 .contact-chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 .contact-chip svg { width: 17px; height: 17px; color: var(--accent); flex: none; }
+.contact-loc { cursor: default; }
+.contact-loc:hover { border-color: var(--line); color: var(--ink); transform: none; }
