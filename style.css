@@ -1045,3 +1045,36 @@ main.wrap { position: relative; z-index: 1; }
 .contact-chip svg { width: 17px; height: 17px; color: var(--accent); flex: none; }
 .contact-loc { cursor: default; }
 .contact-loc:hover { border-color: var(--line); color: var(--ink); transform: none; }
+
+/* Two-column contact (connect panel + message form) */
+.contact-grid2 { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 22px; margin-top: 22px; align-items: start; }
+@media (max-width: 820px) { .contact-grid2 { grid-template-columns: 1fr; } }
+.connect-title { font-size: 1.15rem; font-weight: 800; margin: 0 0 16px; display: flex; align-items: center; gap: 10px; }
+.connect-title .mp-ico { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 8px; background: rgba(91,140,255,.14); }
+.connect-title .mp-ico svg { width: 17px; height: 17px; color: var(--accent); }
+
+.connect-panel { display: flex; flex-direction: column; gap: 12px; }
+.info-card { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 14px; background: var(--card-bg); text-decoration: none; color: inherit; transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
+a.info-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,99,235,.12); }
+.info-card .ic-ico { flex: none; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 11px; background: rgba(91,140,255,.14); color: var(--accent); }
+.info-card .ic-ico svg { width: 20px; height: 20px; }
+.info-card .ic-text { display: flex; flex-direction: column; min-width: 0; }
+.info-card .ic-label { font-weight: 700; font-size: .92rem; color: var(--ink); }
+.info-card .ic-val { color: var(--muted); font-size: .88rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.info-card .ic-ext { margin-left: auto; color: var(--accent); }
+.info-card .ic-ext svg { width: 16px; height: 16px; }
+.info-card .ic-status { margin-left: auto; width: 10px; height: 10px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 4px rgba(34,197,94,.18); }
+
+.message-panel { border: 1px solid var(--line); border-radius: 16px; background: var(--card-bg); padding: 22px; }
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 480px) { .cf-row { grid-template-columns: 1fr; } }
+.cf-field { display: flex; flex-direction: column; gap: 7px; }
+.cf-field label { font-size: .86rem; font-weight: 600; color: var(--ink); }
+.cf-field input, .cf-field textarea { width: 100%; padding: 11px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--box-bg); color: var(--ink); font: inherit; font-size: .92rem; transition: border-color .2s ease, box-shadow .2s ease; }
+.cf-field textarea { resize: vertical; min-height: 120px; }
+.cf-field input::placeholder, .cf-field textarea::placeholder { color: var(--soft); }
+.cf-field input:focus, .cf-field textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,.18); }
+.cf-submit { width: 100%; justify-content: center; margin-top: 2px; }
+.cf-note { display: flex; align-items: center; justify-content: center; gap: 7px; margin: 4px 0 0; color: var(--soft); font-size: .82rem; }
+.cf-note svg { width: 14px; height: 14px; fill: var(--soft); }

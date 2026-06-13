@@ -12,6 +12,25 @@
     // ---- Year ----
     document.querySelectorAll(".year").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
+    // ---- Contact form: open mail client with a prefilled message ----
+    var contactForm = document.getElementById("contactForm");
+    if (contactForm) {
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var get = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ""; };
+        var name = get("cf-name"), email = get("cf-email"), subject = get("cf-subject"), message = get("cf-message");
+        if (!name || !email || !message) {
+          contactForm.reportValidity ? contactForm.reportValidity() : alert("Please fill in your name, email, and message.");
+          return;
+        }
+        var subj = subject || ("Portfolio message from " + name);
+        var body = "Name: " + name + "\nEmail: " + email + "\n\n" + message;
+        window.location.href = "mailto:matchetteric1@gmail.com"
+          + "?subject=" + encodeURIComponent(subj)
+          + "&body=" + encodeURIComponent(body);
+      });
+    }
+
     // ---- Back to top ----
     document.querySelectorAll('a[href="#top"], .to-top').forEach(function (a) {
       a.addEventListener("click", function (e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); });
