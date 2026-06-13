@@ -12,51 +12,23 @@
     // ---- Year ----
     document.querySelectorAll(".year").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
-    // ---- Contact form: send via FormSubmit (no backend needed) ----
+    // ---- Contact form: confirmation after FormSubmit redirect ----
     var contactForm = document.getElementById("contactForm");
     if (contactForm) {
       var statusEl = document.getElementById("cfStatus");
-      var setStatus = function (msg, kind) {
-        if (!statusEl) return;
-        statusEl.innerHTML = msg;
-        statusEl.className = "cf-status" + (kind ? " " + kind : "");
-      };
-      contactForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-        var get = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ""; };
-        var name = get("cf-name"), email = get("cf-email"), subject = get("cf-subject"), message = get("cf-message");
-        if (!name || !email || !message) {
-          if (contactForm.reportValidity) contactForm.reportValidity();
-          else setStatus("Please fill in your name, email, and message.", "err");
-          return;
+      var sent = false;
+      try { sent = new URLSearchParams(window.location.search).get("sent") === "1"; } catch (e) {}
+      if (sent && statusEl) {
+        statusEl.textContent = "Thanks! Your message has been sent — I'll get back to you soon.";
+        statusEl.className = "cf-status ok";
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState(null, "", window.location.pathname + "#contact");
         }
+      }
+      // Disable the button on submit to prevent double-sends
+      contactForm.addEventListener("submit", function () {
         var btn = contactForm.querySelector(".cf-submit");
-        var orig = btn ? btn.innerHTML : "";
         if (btn) { btn.disabled = true; btn.innerHTML = "Sending…"; }
-        setStatus("", "");
-        fetch("https://formsubmit.co/ajax/matchetteric1@gmail.com", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "Accept": "application/json" },
-          body: JSON.stringify({
-            name: name,
-            email: email,
-            _subject: subject || ("Portfolio message from " + name),
-            message: message,
-            _captcha: "false",
-            _template: "table"
-          })
-        })
-          .then(function (r) { return r.json(); })
-          .then(function (d) {
-            if (d && (d.success === "true" || d.success === true)) {
-              setStatus("Thanks! Your message has been sent — I'll get back to you soon.", "ok");
-              contactForm.reset();
-            } else { throw new Error("send failed"); }
-          })
-          .catch(function () {
-            setStatus("Sorry, something went wrong. Please email me directly at <a href=\"mailto:matchetteric1@gmail.com\">matchetteric1@gmail.com</a>.", "err");
-          })
-          .then(function () { if (btn) { btn.disabled = false; btn.innerHTML = orig; } });
       });
     }
 
