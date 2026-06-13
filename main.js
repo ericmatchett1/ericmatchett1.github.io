@@ -12,22 +12,51 @@
     // ---- Year ----
     document.querySelectorAll(".year").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
-    // ---- Contact form: open mail client with a prefilled message ----
+    // ---- Contact form: send via FormSubmit (no backend needed) ----
     var contactForm = document.getElementById("contactForm");
     if (contactForm) {
+      var statusEl = document.getElementById("cfStatus");
+      var setStatus = function (msg, kind) {
+        if (!statusEl) return;
+        statusEl.innerHTML = msg;
+        statusEl.className = "cf-status" + (kind ? " " + kind : "");
+      };
       contactForm.addEventListener("submit", function (e) {
         e.preventDefault();
         var get = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ""; };
         var name = get("cf-name"), email = get("cf-email"), subject = get("cf-subject"), message = get("cf-message");
         if (!name || !email || !message) {
-          contactForm.reportValidity ? contactForm.reportValidity() : alert("Please fill in your name, email, and message.");
+          if (contactForm.reportValidity) contactForm.reportValidity();
+          else setStatus("Please fill in your name, email, and message.", "err");
           return;
         }
-        var subj = subject || ("Portfolio message from " + name);
-        var body = "Name: " + name + "\nEmail: " + email + "\n\n" + message;
-        window.location.href = "mailto:matchetteric1@gmail.com"
-          + "?subject=" + encodeURIComponent(subj)
-          + "&body=" + encodeURIComponent(body);
+        var btn = contactForm.querySelector(".cf-submit");
+        var orig = btn ? btn.innerHTML : "";
+        if (btn) { btn.disabled = true; btn.innerHTML = "Sending…"; }
+        setStatus("", "");
+        fetch("https://formsubmit.co/ajax/matchetteric1@gmail.com", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            _subject: subject || ("Portfolio message from " + name),
+            message: message,
+            _captcha: "false",
+            _template: "table"
+          })
+        })
+          .then(function (r) { return r.json(); })
+          .then(function (d) {
+            if (d && (d.success === "true" || d.success === true)) {
+              setStatus("Thanks! Your message has been sent — I'll get back to you soon.", "ok");
+              contactForm.reset();
+            } else { throw new Error("send failed"); }
+          })
+          .catch(function () {
+            setStatus("Sorry, something went wrong. Please email me directly at <a href=\"mailto:matchetteric1@gmail.com\">matchetteric1@gmail.com</a>.", "err");
+          })
+          .then(function () { if (btn) { btn.disabled = false; btn.innerHTML = orig; } });
       });
     }
 

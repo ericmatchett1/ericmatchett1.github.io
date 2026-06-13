@@ -1081,3 +1081,8 @@ a.info-card:hover { border-color: var(--accent); transform: translateY(-2px); bo
 .cf-submit { width: 100%; justify-content: center; margin-top: 2px; }
 .cf-note { display: flex; align-items: center; justify-content: center; gap: 7px; margin: 4px 0 0; color: var(--soft); font-size: .82rem; }
 .cf-note svg { width: 14px; height: 14px; fill: var(--soft); }
+.cf-status { margin: 0; text-align: center; font-size: .9rem; font-weight: 600; }
+.cf-status:empty { display: none; }
+.cf-status.ok { color: #22c55e; }
+.cf-status.err { color: #ef4444; }
+.cf-status a { color: inherit; text-decoration: underline; }
