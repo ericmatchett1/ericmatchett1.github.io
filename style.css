@@ -1026,7 +1026,9 @@ main.wrap { position: relative; z-index: 1; }
 .walk-step b { display: block; font-size: .92rem; margin-top: 3px; }
 .walk-step .d { color: var(--muted); font-size: .82rem; }
 
-.proj-media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.proj-media-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 720px) { .proj-media-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .proj-media-grid { grid-template-columns: 1fr; } }
 .proj-media-grid figure { margin: 0; }
 .proj-media-grid .pm { position: relative; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: #0b1220; aspect-ratio: 16 / 10; }
 .proj-media-grid .pm img, .proj-media-grid .pm video { width: 100%; height: 100%; object-fit: cover; display: block; }
