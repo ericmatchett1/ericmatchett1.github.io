@@ -16,6 +16,11 @@
     var contactForm = document.getElementById("contactForm");
     if (contactForm) {
       var statusEl = document.getElementById("cfStatus");
+      // Make the post-submit redirect work on whatever domain we're hosted on
+      var nextEl = document.getElementById("cf-next");
+      if (nextEl && window.location && window.location.origin) {
+        nextEl.value = window.location.origin + "/?sent=1#contact";
+      }
       var sent = false;
       try { sent = new URLSearchParams(window.location.search).get("sent") === "1"; } catch (e) {}
       if (sent && statusEl) {
